@@ -2,11 +2,12 @@
 @import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet';
 
 :root {
-    --icons-color: #b5d7f2;
-    --background-color: #29509D;
+    --background-color: #b5d7f2;
+    --icons-color: #29509D;
     --button-color: #ffc190;
     --button-play-color: #ea6a58;
     --font-color: #1f2f49;
+    --desc-color: #9AA1AD;
 }
 
 * {
@@ -27,22 +28,57 @@ a {
 body {
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;  
-    font-family: Roboto;
+    font-family: Montserrat;
     height: 100vh;
     font-size: 1.6rem;
 
     display: flex;
     flex-direction: column;
-    background: var(--background-color);    
+    background: var(--background-color);   
+    color: #ffffff; 
 }
 
 header {
     text-align: center;
-    color: #eeeeee;
+    padding: 1.2em;    
 }
 
-footer {
+header a {
+    font-size: 1.2em;
+    color: #ffffff;    
+    position: relative;
+}
+
+header a + a {
+    margin-left: 4em;
+}
+
+
+header a::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    background: #ffffff;
+    position: absolute;
+    bottom:  -5px;
+    left: 0;
+}
+header a:hover::after {
+    width: 100%;
+
+    transition: width 200ms ease;
+}
+
+footer {       
+    color: var(--desc-color);
     margin-top: auto;
     height: 3em;
     background: var(--button-play-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
 }
+
+
+
