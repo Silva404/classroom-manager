@@ -5,7 +5,7 @@
     --background-color: #b5d7f2;
     --icons-color: #29509D;
     --button-color: #ffc190;
-    --button-play-color: #ea6a58;
+    --button-play-color: #1a1d4b;
     --font-color: #1f2f49;
     --desc-color: #9AA1AD;
 }
@@ -31,6 +31,7 @@ body {
     font-family: Montserrat;
     height: 100vh;
     font-size: 1.6rem;
+    line-height: 1.6em;
 
     display: flex;
     flex-direction: column;

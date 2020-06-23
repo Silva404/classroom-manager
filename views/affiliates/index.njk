@@ -1,2 +1,34 @@
 {% extends 'layout.njk' %}
 
+{% block styles %}
+    <link rel="stylesheet" href="styles/index.css">
+{% endblock styles %}
+
+{% block content %}
+    <main class="card">
+        <section class="image"></section>
+        <section class="info">
+            <h1>Ficha técnica</h1>
+            <div class="item">
+                <div>Nome completo</div>
+                <div>Carlos Breno Soares da Silva</div>
+            </div>
+            <div class="item">
+                <div>Idade</div>
+                <div>21 anos</div>
+            </div>
+            <div class="item">
+                <div>Grau de escolaridade</div>
+                <div>Graduação em Eng. de Telecomunicações</div>
+            </div>
+            <div class="item">
+                <div>Acompanhamento</div>
+                <div><span>Estrutura de dados</span><span>Algorítimos</span></div>
+            </div>
+            <div class="item">
+                <div>Desde</div>
+                <div>01/04/2020</div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

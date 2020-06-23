@@ -15,6 +15,6 @@ nunjucks.configure('views', {
     autoescape: false
 })
 
-server.listen(4000, () => {
+server.listen(3000, () => {
     console.log('Server is on!')
 })
