@@ -1,21 +1,21 @@
-/* box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.2);
-animation: 400ms ease 1s forwards up;
-
-@keyframes up {
-    0% {
-        transform: translateY(15px);
-    } 100% {        
-        opacity: 1;
-    }
-}
-*/
-
 .card {
     display: grid;
     grid-template-columns: repeat(2, 1fr)   ;
     width: 85%;
     min-width: 600px;
     margin: 3em auto;
+    box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    animation: 400ms ease 0.5s forwards up;
+}
+
+@keyframes up {
+    from {
+        transform: translateX(30px);
+    } to {
+        opacity: 1;
+    }
 }
 
 .info {
@@ -59,23 +59,31 @@ input {
     border: 0;
     border-radius: 0.5em;
     font-size: 1.8rem;
+    background-color: none;
+    outline: none;    
 }
 
+input:-webkit-autofill {
+    background-color: none !important;
+}
 
-/* .item label {
-    padding: 0.5em 1em;
-    font-size: 1.2rem;
-} */
+.item label {
+    font-size: 1.4rem;
+    padding-right: 1em;
+}
 
-.item label:first-child {
-    margin-right: 0.5em;
+.item label:last-child {
+    margin-right: 0;
 }
 
 
 input[type="radio"] {
     width: initial;
-    display: inline;
-    margin-right: 0.5em;
+    background-color: black;
+}
+
+input[type="radio"]:checked {
+    background: var(--background-color);
 }
 
 button[type="submit"] {
