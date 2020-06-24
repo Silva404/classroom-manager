@@ -9,6 +9,10 @@ routes.get('/teachers', (req,res) => {
     res.render('affiliates/index')
 })
 
+routes.get('/teachers/create', (req,res) => {
+    res.render('affiliates/create')
+})
+
 routes.get('/students', (req,res) => {
     res.render('students')
 })

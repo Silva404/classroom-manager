@@ -2,12 +2,12 @@
 @import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet';
 
 :root {
-    --background-color: #b5d7f2;
-    --icons-color: #29509D;
-    --button-color: #ffc190;
-    --button-play-color: #1a1d4b;
-    --font-color: #1f2f49;
-    --desc-color: #9AA1AD;
+    --primary-color: #255D50;
+    --secondary-color: #CB8460;
+    --background-color: #F0E9DD;
+    --font-color: #2D2C2C;
+    --desc-color: #A1A1A1;
+
 }
 
 * {
@@ -36,18 +36,19 @@ body {
     display: flex;
     flex-direction: column;
     background: var(--background-color);   
-    color: #ffffff; 
+    color: var(--font-color)
 }
 
 header {
     text-align: center;
-    padding: 1.2em;    
+    padding: 1.2em;        
 }
 
 header a {
-    font-size: 1.2em;
-    color: #ffffff;    
+    font-size: 1.2em; 
+    font-weight: 500;
     position: relative;
+    color: var(--font-color);
 }
 
 header a + a {
@@ -59,27 +60,22 @@ header a::after {
     content: '';
     height: 2px;
     width: 0%;
-    background: #ffffff;
+    background: var(--font-color);
     position: absolute;
     bottom:  -5px;
     left: 0;
 }
 header a:hover::after {
     width: 100%;
-
     transition: width 200ms ease;
 }
 
-footer {       
-    color: var(--desc-color);
+footer {
+    color: var(--font-color);
     margin-top: auto;
     height: 3em;
-    background: var(--button-play-color);
     display: flex;
     align-items: center;
     justify-content: center;
     display: none;
 }
-
-
-

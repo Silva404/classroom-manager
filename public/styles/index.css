@@ -1,18 +1,5 @@
-.card { 
-    display: grid;
-    grid-template-columns: 40% 60%;
-
-    min-width: 600px;
-    min-height: 600px;
-    width: 70%;
-    margin: 2em auto 4em;
-
-    background: #ffff;
-    color: #0000;
-    opacity: 0;    
-    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.2);
-    animation: 400ms ease 1s forwards up;
-}
+/* box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.2);
+animation: 400ms ease 1s forwards up;
 
 @keyframes up {
     0% {
@@ -21,50 +8,87 @@
         opacity: 1;
     }
 }
+*/
 
 .card {
-    color: var(--font-color);    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr)   ;
+    width: 85%;
+    min-width: 600px;
+    margin: 3em auto;
 }
 
-.card .info {
-    padding:    5em;
+.info {
+    background: #ffffff;
+    padding: 5em 7em;
+}
+
+.info h3 {
+    margin-bottom: 3em;
 }
 
 .info h1 {
-    font-size: 3.2rem;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
 }
 
-.item {
-    margin: 2rem 0;
+.info .item {
+    padding: 0.6em 0;
 }
 
-.card .item div:nth-child(1) {
-    color: var(--desc-color);
+.info .item {
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.1);
+}
+
+.tittle span a {
+    color: var(--font-color);
+}
+
+.tittle span,
+.info .item div:nth-child(1) {
     font-size: 1.4rem;
-    letter-spacing: 0.05em;
+    color: var(--desc-color);
 }
 
-
-.card .item div:nth-child(2) {
+.info .item div + div{
     font-size: 1.8rem;
-    font-weight: 500;
 }
-    
+
+input {
+    width: 100%;
+    border: 0;
+    border-radius: 0.5em;
+    font-size: 1.8rem;
+}
+
+
+/* .item label {
+    padding: 0.5em 1em;
+    font-size: 1.2rem;
+} */
+
+.item label:first-child {
+    margin-right: 0.5em;
+}
+
+
+input[type="radio"] {
+    width: initial;
+    display: inline;
+    margin-right: 0.5em;
+}
+
+button[type="submit"] {
+    margin-top: 2em;
+    padding: 1em 0;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.8rem;
+    background: var(--font-color);
+    color: #ffffff;
+    border: 0;
+}
+
 .image {
     background: url('https://source.unsplash.com/collection/517198/900x900') no-repeat center center / cover;
-}
-
-.item span {
-    margin-top: 0.4em;
-    background: var(--button-color);
-    color: var(--button-play-color);
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
-    font-size: 1.4rem;
-    display: inline-block;
-    font-weight: 500;
-}
-
-.item span + span {
-    margin-left: 1em;
-}
+} 

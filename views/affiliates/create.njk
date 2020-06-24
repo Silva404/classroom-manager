@@ -1,6 +1,7 @@
 {% extends 'layout.njk' %}
 
 {% block styles %}
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/index.css">
 {% endblock styles %}
 
@@ -36,12 +37,11 @@
             </div>
             <div class="item">
                 <div>Education</div>
-                <span>
-                    <input type="radio" name="distance">
-                    <label for="distance">Distance learning</label>
-                </span>
 
-                <span><input type="radio" name="presence">Traditional classes</span>
+                <input type="radio" name="distance">
+                <label for="distance">Distance learning</label>
+                <input type="radio" name="presence">
+                <label for="presence">Traditional classes</label>
             </div>
             <div class="item">
                 <div>Field of work</div>
