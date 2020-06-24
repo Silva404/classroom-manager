@@ -1,1 +1,46 @@
-[object JSON]
+{
+  "affiliates": [
+    {
+      "name": "Carlos Breno Soarasaes da Silva",
+      "birth": "0012-12-01",
+      "education": "high-school",
+      "distance": "on",
+      "work": "121212"
+    },
+    {
+      "name": "Carlos Breno Soarasaes da Silva",
+      "birth": -61759584000000,
+      "education": "high-school",
+      "distance": "on",
+      "work": "121212",
+      "createdAt": 1592967034582
+    },
+    {
+      "name": "Carlos Breno Soarasaes da Silva",
+      "birth": -61759584000000,
+      "education": "high-school",
+      "distance": "on",
+      "work": "121212",
+      "id": 3,
+      "createdAt": 1592967087384
+    },
+    {
+      "name": "Carlos Breno Soarasaes da Silva",
+      "birth": -61759584000000,
+      "education": "high-school",
+      "distance": "on",
+      "work": "121212",
+      "id": 4,
+      "createdAt": 1592967088247
+    },
+    {
+      "name": "Carlos Breno Soarasaes da Silva",
+      "birth": -61759584000000,
+      "education": "high-school",
+      "distance": "on",
+      "work": "121212",
+      "id": 5,
+      "createdAt": 1592967165340
+    }
+  ]
+}
