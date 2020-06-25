@@ -1,5 +1,5 @@
 {
-  "affiliates": [
+  "teachers": [
     {
       "name": "Carlos Breno Soarasaes da Silva",
       "birth": "0012-12-01",
@@ -41,6 +41,15 @@
       "work": "121212",
       "id": 5,
       "createdAt": 1592967165340
+    },
+    {
+      "name": "Breno SIlva",
+      "birth": 883699200000,
+      "work": "Ecologia",
+      "id": 6,
+      "education": "high-school",
+      "distance": "on",
+      "created_at": 1593106271441
     }
   ]
 }

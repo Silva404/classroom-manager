@@ -5,39 +5,38 @@
 {% endblock styles %}
 
 {% block content %}
-    <div class="card">
-        
-  <section class="info">
-            <h3>Classroom manager</h3>
+    <form class="card" method="post" action="/teachers">
+        <section class="info">
             <div class="tittle">
-                <h1>Get started</h1>
+                <h1>Teacher info</h1>
                 <span>Already have an account?
                     <a href="#">Sign in</a>
                 </span>
             </div>
-            
+
             <div class="item">
-                <div>Instrutor</div>
+                <div>Your name</div>
                 <div>Breno Silva</div>
-            </div>  
-            <div class="item">
-                <div>Sexo</div>
-                <div class='button'>Masculino</div>
             </div>
             <div class="item">
-                <div>Acompanhamento</div>
-                <div>
-                    <span>Musculação</span>
-                    <span>Crossfit</span></div>
-            </div>
-            <div class="item">
-                <div>Data de início</div>
+                <div>Birth date</div>
                 <div>25/11/1998</div>
+            </div>
+            <div class="item">
+                <div>Formation degree</div>
+                <div>College Degree
+                </div>
+            </div>
+            <div class="item">
+                <div>Education</div>
+                <div>Traditional classes</div>
+            </div>
+            <div class="item">
+                <div>Field of work</div>
+                <div>Computer Science</div>
             </div>
         </section>
 
         <section class="image"></section>
-
-        
-    </div>
+    </form>
 {% endblock content %}

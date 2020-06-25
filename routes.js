@@ -1,20 +1,22 @@
 const express = require('express')
 const routes = express.Router()
-const affiliates = require('./affiliates')
+const teachers = require('./teachers')
 
 routes.get('/', (req, res) => {
-    res.render('affiliates/index')
+    res.render('teachers/index')
 })
 
 routes.get('/teachers', (req, res) => {
-    return res.render('affiliates/index')
+    return res.render('teachers/index')
 })
-
-routes.post('/teachers', affiliates.post)
 
 routes.get('/teachers/create', (req, res) => {
-    return res.render('affiliates/create')
+    return res.render('teachers/create')
 })
+
+routes.get('/teachers/:id', teachers.show)
+
+routes.post('/teachers', teachers.post)
 
 routes.get('/students', (req, res) => {
     return res.render('students')

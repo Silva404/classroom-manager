@@ -86,7 +86,8 @@ input[type="radio"]:checked {
     background: var(--background-color);
 }
 
-button[type="submit"] {
+button[type="submit"],
+a.button {
     margin-top: 2em;
     padding: 1em 0;
     width: 100%;
@@ -95,6 +96,11 @@ button[type="submit"] {
     background: var(--font-color);
     color: #ffffff;
     border: 0;
+}
+
+a.button {
+    display: block;
+    text-align: center;
 }
 
 .image {

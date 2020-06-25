@@ -1,0 +1,53 @@
+{% extends 'layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/index.css">
+{% endblock styles %}
+
+{% block title %}
+    <title>Teacher info</title>
+{% endblock title %}
+
+{% block content %}
+    <form class="card" method="post" action="/teachers">
+        <section class="info">
+            <div class="tittle">
+                <h1>Teacher info</h1>
+                <span>Already have an account?
+                    <a href="#">Sign in</a>
+                </span>
+            </div>
+
+            <div class="item">
+                <div>Your name</div>
+                <div>{{ teacher.name }}</div>
+            </div>
+            <div class="item">
+                <div>Birth date</div>
+                <div>{{ teacher.birth }}</div>
+            </div>
+            <div class="item">
+                <div>Formation degree</div>
+                <div>{{ teacher.education }}
+                </div>
+            </div>
+            <div class="item">
+                <div>Education</div>
+                <div>
+                    {{ "Tradicional classes" if teacher.distance == "on" else "Distance Learning"}}
+                </div>
+            </div>
+            <div class="item">
+                <div>Field of work</div>    
+                <div>{{ teacher.work }}</div>
+            </div>
+            <div class="item">
+                <div>Member Since</div>
+                <div>{{ teacher.created_at }}</div>
+            </div>
+            <a href="#" class="button">Salvar</a>
+        </section>
+
+        <section class="image"></section>
+    </form>
+{% endblock content %}
