@@ -23,19 +23,17 @@ module.exports = {
 
         return age
     },
-    graduation: (graduation) => {
-        // pegar um numero do education  => 1 a 4 
-        // baseado no numero, escolher a opção assim como html com nunjucks
-        const options = [
-            'High school',
-            'College Degree',
-            'Masters Degree',
-            'PHD Degree'
-        ]
+    graduation: (education, id) => {        
+        // const options = [
+        //     `<options selected>'High school'</options>`,
+        //     `<options selected>'College Degree'</options>`,
+        //     `<options selected>'Masters Degree'</options>`,
+        //     `<options selected>'PHD Degree'</options>`
+        // ]
 
-        for (let i = 0; ){
-            
-        }
+        if (education == id){
+            return education.selected
+        } 
     },
     formatter: new Intl.DateTimeFormat('pt-BR', {
         day: '2-digit',

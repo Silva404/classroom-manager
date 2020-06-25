@@ -10,8 +10,9 @@ exports.edit = (req, res) => {
     const teacher = {
         ...teacherFound,
         birth: date(teacherFound.birth),
-        education: graduation(teacherFound.education)
+        education: graduation(teacherFound.education, id)       
     }
+    console.log(teacher.education)
 
     return res.render('teachers/edit', { teacher })
 }
