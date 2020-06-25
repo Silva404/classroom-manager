@@ -29,11 +29,11 @@
             <div class="item">
                 <div>Formation degree</div>
                 <div>
-                    {% if teacher.education == "high-school"  %}
+                    {% if teacher.education == "1"  %}
                         High school
-                    {% elif teacher.education == "college-degree" %}
+                    {% elif teacher.education == "2" %}
                         College Degree
-                    {% elif teacher.education == "masters-degree" %}
+                    {% elif teacher.education == "3" %}
                         Master's Degree
                     {% else %} PHD Degree
                     {% endif %}
