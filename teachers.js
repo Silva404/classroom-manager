@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { date, age } = require('./utils.js')
+const { date, age, graduation, formatter } = require('./utils.js')
 
 exports.edit = (req, res) => {    
     const { id } = req.params
@@ -23,11 +23,7 @@ exports.show = (req, res) => {
     const teacher = {
         ...teacherFound,
         age: age(teacherFound.birth),
-        created_at: new Intl.DateTimeFormat('pt-BR', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        }).format(teacherFound.created_at)
+        created_at: formatter.format(teacherFound.created_at)
     }
 
     return res.render('teachers/show', { teacher })
@@ -51,7 +47,7 @@ exports.post = (req, res) => {
 
     data.teachers.push({ 
         name,
-        birth,
+        birth,  
         work,
         id,
         education,
