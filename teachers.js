@@ -23,7 +23,11 @@ exports.show = (req, res) => {
     const teacher = {
         ...teacherFound,
         age: age(teacherFound.birth),
-        created_at: date(teacherFound.created_at),
+        created_at: new Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        }).format(teacherFound.created_at)
     }
 
     return res.render('teachers/show', { teacher })
@@ -32,7 +36,6 @@ exports.show = (req, res) => {
 exports.post = (req, res) => {
     const keys = Object.keys(req.body)
     
-    // remember to make the user only type text in work field
     for (let key of keys) {
         if (req.body[key] == '') {
             return res.send('Please fill all the fields!')

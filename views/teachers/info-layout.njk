@@ -19,13 +19,7 @@
 </div>
 <div class="item">
     <div>Education</div>
-    {% if teacher.distance == null %}
-        <input type="radio" name="distance">
-        <label for="distance">Distance learning</label>
-        <input type="radio" name="presence">
-        <label for="presence">Traditional classes</label>
-
-    {% elif teacher.distance == 'on' %}
+    {% if teacher.distance == 'on' %}
         <input type="radio" name="distance" checked>
         <label for="distance">Distance learning</label>
         <input type="radio" name="presence">
@@ -34,8 +28,8 @@
     {% else %}
         <input type="radio" name="distance">
         <label for="distance">Distance learning</label>
-        <input type="radio" name="presence">
-        <label for="presence" checked>Traditional classes</label>
+        <input type="radio" name="presence" checked>
+        <label for="presence" >Traditional classes</label>
     {% endif %}
 
 </div>
@@ -45,3 +39,12 @@
 </div>
 
 <button type="submit">Save</button>
+
+{# 
+if teacher.distance == null%}
+        <input type="radio" name="distance">
+        <label for="distance">Distance learning</label>
+        <input type="radio" name="presence">
+        <label for="presence">Traditional classes</label>
+
+    {% el #}
