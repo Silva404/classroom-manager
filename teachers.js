@@ -1,13 +1,14 @@
 const fs = require('fs')
 const data = require('./data.json')
+const { graduation } = require('./utils.js')
 
-exports.edit = (req, res) => {
+exports.edit = (req, res) => {    
     const educationCheck = document.querySelectorAll('#edu')
     const { id } = req.params
     const teacherFound = data.teachers.find(info => info.id == id)
     if(!teacherFound) return res.send(`You can't edit something that doesn't exists`)
 
-    // for (let i = 0; i < teacher)
+    // graduation(teacherFound.education, educationCheck)   
 
     return res.render('teachers/edit', { teacher: teacherFound})
 }
