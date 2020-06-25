@@ -10,6 +10,7 @@ exports.edit = (req, res) => {
     const teacher = {
         ...teacherFound,
         birth: date(teacherFound.birth),
+        education: graduation(teacherFound.education)
     }
 
     return res.render('teachers/edit', { teacher })

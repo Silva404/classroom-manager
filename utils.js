@@ -12,19 +12,25 @@ module.exports = {
         const today = new Date()
         const birthDate = new Date(timestamp)
 
-        let age =  today.getFullYear() - birthDate.getFullYear()
+        let age = today.getFullYear() - birthDate.getFullYear()
 
         const month = today.getMonth() - birthDate.getMonth()
         const day = today.getDate() - birthDate.getDate()
 
-        if (month == 0 || month < 0 && day < 0 )  {
+        if (month == 0 || month < 0 && day < 0) {
             age = age - 1
         }
-        
+
         return age
     },
     graduation: (graduation) => {
+        // pegar um numero do education  => 1 a 4 
+        // baseado no numero, escolher a opção assim como html com nunjucks
 
+        if (graduation == "1") return 'High school'
+        else if (graduation == "2") return 'College Degree'
+        else if (graduation == "3") return 'Masters Degree'
+        else return 'PHD Degree'
     },
     formatter: new Intl.DateTimeFormat('pt-BR', {
         day: '2-digit',
@@ -32,11 +38,6 @@ module.exports = {
         year: 'numeric'
     })
 }
-
-
-
-
-
 
 
 // graduation: (educationLevel, target) => {
