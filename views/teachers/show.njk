@@ -28,7 +28,15 @@
             </div>
             <div class="item">
                 <div>Formation degree</div>
-                <div>{{ teacher.education }}
+                <div>
+                    {% if teacher.education == "high-school"  %}
+                        High school
+                    {% elif teacher.education == "college-degree" %}
+                        College Degree
+                    {% elif teacher.education == "masters-degree" %}
+                        Master's Degree
+                    {% else %} PHD Degree
+                    {% endif %}
                 </div>
             </div>
             <div class="item">
@@ -38,7 +46,7 @@
                 </div>
             </div>
             <div class="item">
-                <div>Field of work</div>    
+                <div>Field of work</div>
                 <div>{{ teacher.work }}</div>
             </div>
             <div class="item">

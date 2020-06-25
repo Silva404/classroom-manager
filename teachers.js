@@ -1,5 +1,14 @@
 const fs = require('fs')
 const data = require('./data.json')
+const { table } = require('console')
+
+exports.edit = (req, res) => {
+    const { id } = req.params
+    const teacherFound = data.teachers.find(info => info.id == id)
+    if(!teacherFound) return res.send(`You can't edit something that doesn't exists`)
+
+    return res.render('teachers/edit', { teacher: teacherFound})
+}
 
 exports.show = (req, res) => {
     const { id } = req.params
@@ -19,7 +28,7 @@ exports.post = (req, res) => {
         }
     }
 
-    let { name, birth, work, education, distance } = req.body
+    let { name, birth, work, education, distance, presence } = req.body
 
     birth = Date.parse(req.body.birth)
     const id = data.teachers.length + 1
@@ -32,6 +41,7 @@ exports.post = (req, res) => {
         work,
         id,
         education,
+        presence,
         distance,
         created_at
     })
