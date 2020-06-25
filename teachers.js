@@ -1,16 +1,18 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { graduation } = require('./utils.js')
+const { date, age } = require('./utils.js')
 
 exports.edit = (req, res) => {    
-    const educationCheck = document.querySelectorAll('#edu')
     const { id } = req.params
     const teacherFound = data.teachers.find(info => info.id == id)
     if(!teacherFound) return res.send(`You can't edit something that doesn't exists`)
 
-    // graduation(teacherFound.education, educationCheck)   
+    const teacher = {
+        ...teacherFound,
+        birth: date(teacherFound.birth),
+    }
 
-    return res.render('teachers/edit', { teacher: teacherFound})
+    return res.render('teachers/edit', { teacher })
 }
 
 exports.show = (req, res) => {
@@ -18,7 +20,13 @@ exports.show = (req, res) => {
     const teacherFound = data.teachers.find(info => info.id == id)
     if (!teacherFound) return res.send('Teacher not found!')
 
-    return res.render('teachers/show', { teacher: teacherFound })
+    const teacher = {
+        ...teacherFound,
+        age: age(teacherFound.birth),
+        created_at: date(teacherFound.created_at),
+    }
+
+    return res.render('teachers/show', { teacher })
 }
 
 exports.post = (req, res) => {
