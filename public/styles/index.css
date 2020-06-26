@@ -130,6 +130,7 @@ table {
     margin-top: 0;
     padding: 0.8em;
     font-size: 1.4rem;
+    box-shadow: 0 1.5em 2.2em 0 rgba(0, 0, 0, 0.3);
 }
 .table-container tr th:first-child  {
     padding-left: 3em;
@@ -147,6 +148,9 @@ table {
     height: 3.5em;
     width: 3.5em;
     border-radius: 50%;
+
+    border: 3px solid var(--ternary-color);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 

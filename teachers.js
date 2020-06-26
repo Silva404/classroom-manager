@@ -3,6 +3,8 @@ const data = require('./data.json')
 const { date, age, formatter } = require('./utils.js')
 
 exports.index = (req, res) => {
+    
+
     res.render('teachers/index', { teachers: data.teachers })
 }
 
@@ -29,7 +31,8 @@ exports.show = (req, res) => {
     const teacher = {
         ...teacherFound,
         age: age(teacherFound.birth),
-        created_at: formatter.format(teacherFound.created_at)
+        created_at: formatter.format(teacherFound.created_at),
+        work: teacherFound.work.split(",")
     }
 
     return res.render('teachers/show', { teacher })

@@ -54,7 +54,11 @@
             </div>
             <div class="item">
                 <div>Field of work</div>
-                <div>{{ teacher.work }}</div>
+                <div>
+                {% for work in teacher.work %}
+                {{ work }}
+                {% endfor %}
+                </div>                
             </div>
             <div class="item">
                 <div>Member Since</div>
