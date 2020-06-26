@@ -29,20 +29,27 @@
             <div class="item">
                 <div>Formation degree</div>
                 <div>
-                    {% if teacher.education == "1"  %}
+                    {% if teacher.education == "1" %}
                         High school
                     {% elif teacher.education == "2" %}
                         College Degree
                     {% elif teacher.education == "3" %}
                         Master's Degree
-                    {% else %} PHD Degree
+                    {% else %}
+                        PHD Degree
                     {% endif %}
                 </div>
             </div>
             <div class="item">
                 <div>Education</div>
                 <div>
-                    {{ "Tradicional classes" if teacher.distance == "on" else "Distance Learning"}}
+                    {% if teacher.distance  == "on" and teacher.presence == "on" %}
+                        Tradicional classes, Distance Learning
+                    {% elif teacher.presence == "on" %}
+                        Tradicional classes
+                    {% else %}
+                        Distance Learning
+                    {% endif %}
                 </div>
             </div>
             <div class="item">

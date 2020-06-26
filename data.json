@@ -1,13 +1,14 @@
 {
   "teachers": [
     {
-      "name": "Breno SIlva",
-      "birth": 883699200000,
-      "work": "Ecologia",
-      "id": 1,
-      "education": "1",
+      "name": "Breno Silva",
+      "birth": 911952000000,
+      "work": "Computer Science",
+      "id": "1",
+      "education": "3",
       "distance": "on",
-      "created_at": 1593106271441
+      "created_at": 1593106271441,
+      "presence": "on"
     },
     {
       "name": "Paperside",
