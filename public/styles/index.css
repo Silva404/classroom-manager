@@ -109,5 +109,48 @@ a.button {
 }
 
 .image {
-    background: url('https://source.unsplash.com/collection/517198/900x900') no-repeat center center / cover;
+    background-size: cover;
+    background-position: center;
+    /* background: url('https://source.unsplash.com/collection/517198/900x900') no-repeat center center / cover; */
 } 
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.table-container {
+    background: #ffffff;   
+    display: block;
+    width: 70%;
+    padding: 4em;
+}
+
+.table-container td a {
+    margin-top: 0;
+    padding: 0.8em;
+    font-size: 1.4rem;
+}
+.table-container tr th:first-child  {
+    padding-left: 3em;
+}
+
+.table-container tr td:first-child {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
+    align-items: center;
+}
+
+.table-container tr td span {
+    background-position: center;
+    background-size: cover;
+    height: 3.5em;
+    width: 3.5em;
+    border-radius: 50%;
+}
+
+
+td {
+    padding: 1em 0;
+    border-bottom: 1px solid #e9e9e9;
+}
