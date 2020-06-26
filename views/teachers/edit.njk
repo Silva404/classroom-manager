@@ -9,17 +9,28 @@
 {% endblock title %}
 
 {% block content %}
-    <form class="card" method="post" action="/teachers">
+    <div class="card">
         <section class="info">
-            <div class="tittle">
-                <h1>Get started</h1>
-                <span>Already have an account?
-                    <a href="#">Sign in</a>
-                </span>
-            </div>
+            <form method="post" action="/teachers?_method=PUT">
 
-            {% include 'teachers/info-layout.njk'%}
+                <div class="tittle">
+                    <h1>Get started</h1>
+                    <span>Already have an account?
+                        <a href="#">Sign in</a>
+                    </span>
+                </div>
+
+                {% include 'teachers/info-layout.njk'%}
+                <input type="hidden" name="id" value="{{ teacher.id }}">
+            </form>
+
+            <form method="post" action="/teachers?_method=DELETE">
+                <button type="submit">Delete</button>
+                <input type="hidden" name="id" value="{{ teacher.id }}">
+            </form>
         </section>
+
         <section class="image"></section>
-    </form>
+
+    </div>
 {% endblock content %}

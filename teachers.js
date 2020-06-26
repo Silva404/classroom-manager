@@ -1,11 +1,12 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { date, age, graduation, formatter } = require('./utils.js')
+const { date, age, formatter } = require('./utils.js')
+const { json } = require('express')
 
-exports.edit = (req, res) => {    
+exports.edit = (req, res) => {
     const { id } = req.params
     const teacherFound = data.teachers.find(info => info.id == id)
-    if(!teacherFound) return res.send(`You can't edit something that doesn't exists`)
+    if (!teacherFound) return res.send(`You can't edit something that doesn't exists`)
 
     const teacher = {
         ...teacherFound,
@@ -33,7 +34,7 @@ exports.show = (req, res) => {
 
 exports.post = (req, res) => {
     const keys = Object.keys(req.body)
-    
+
     for (let key of keys) {
         if (req.body[key] == '') {
             return res.send('Please fill all the fields!')
@@ -45,11 +46,11 @@ exports.post = (req, res) => {
     birth = Date.parse(req.body.birth)
     const id = data.teachers.length + 1
     const created_at = Date.now()
-    
 
-    data.teachers.push({ 
+
+    data.teachers.push({
         name,
-        birth,  
+        birth,
         work,
         id,
         education,
@@ -62,5 +63,24 @@ exports.post = (req, res) => {
         if (err) return res.send('Error ocurred while writing data.json')
 
         return res.redirect('/teachers')
-    })    
+    })
+}
+
+exports.put = (req, res) => {
+
+}
+
+exports.delete = (req, res) => {
+    const { id } = req.body
+
+    const filteredTeachers = data.teacher.filter(teacher => teacher.id != id)
+    if (!filteredTeachers) return res.send('Teacher not found!')
+
+    data.teachers = filteredTeachers
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
+        if (err) return res.send('Erro while writing file!')
+
+        return res.redirect('/teachers')
+    })
 }

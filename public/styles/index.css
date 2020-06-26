@@ -88,14 +88,19 @@ input[type="radio"]:checked {
 
 button[type="submit"],
 a.button {
+    background: var(--secondary-color);
     margin-top: 2em;
     padding: 1em 0;
     width: 100%;
     font-weight: 700;
     font-size: 1.8rem;
-    background: var(--font-color);
     color: #ffffff;
     border: 0;
+}
+
+button[type="submit"]:nth-child(1) {
+    margin-top: 1em;
+    background: var(--font-color);
 }
 
 a.button {
