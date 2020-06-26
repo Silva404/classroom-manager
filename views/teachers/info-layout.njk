@@ -10,17 +10,17 @@
     <div>Formation degree</div>
     <div>
         <select name="education" id="edu">
-            <option value="1">High school</option>
-            <option value="2">College degree</option>
-            <option value="3">Masters degree</option>
-            <option value="4">PHD degree</option>
+            <option value="1" {% if teacher.education == 1 %} selected="selected" {% endif %}>High school</option>
+            <option value="2" {% if teacher.education == 2 %} selected="selected" {% endif %}>College degree</option>
+            <option value="3" {% if teacher.education == 3 %} selected="selected" {% endif %}>Masters degree</option>
+            <option value="4" {% if teacher.education == 4 %} selected="selected" {% endif %}>PHD degree</option>
         </select>
     </div>
 </div>
 <div class="item">
     <div>Education</div>
     {% if teacher.distance == 'on' %}
-        <input type="radio" name="distance" checked>
+        <input type="radio" name="distance" checked="checked">
         <label for="distance">Distance learning</label>
         <input type="radio" name="presence">
         <label for="presence">Traditional classes</label>
@@ -28,8 +28,8 @@
     {% else %}
         <input type="radio" name="distance">
         <label for="distance">Distance learning</label>
-        <input type="radio" name="presence" checked>
-        <label for="presence" >Traditional classes</label>
+        <input type="radio" name="presence" checked="checked">
+        <label for="presence">Traditional classes</label>
     {% endif %}
 
 </div>
