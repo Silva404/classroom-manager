@@ -1,7 +1,6 @@
 const fs = require('fs')
 const data = require('./data.json')
 const { date, age, formatter } = require('./utils.js')
-const { json } = require('express')
 
 exports.edit = (req, res) => {
     const { id } = req.params
@@ -67,19 +66,41 @@ exports.post = (req, res) => {
 }
 
 exports.put = (req, res) => {
+    const { id } = req.body
+    let index = 0
 
+    const changedInstructor = data.teachers.find((teacher, teacherIndex) => {
+        if (teacher.id == id) {
+            index = teacherIndex
+            return true
+        }
+    })
+
+    const teacher = {
+        ...changedInstructor,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    data.teachers[index] = teacher
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
+        if (err) return res.send('Error while writing file.')
+
+        return res.redirect(`/teachers/${id}`)
+    })
 }
 
 exports.delete = (req, res) => {
     const { id } = req.body
 
-    const filteredTeachers = data.teacher.filter(teacher => teacher.id != id)
+    const filteredTeachers = data.teachers.filter(teacher => teacher.id != id)
     if (!filteredTeachers) return res.send('Teacher not found!')
 
     data.teachers = filteredTeachers
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
-        if (err) return res.send('Erro while writing file!')
+        if (err) return res.send('Error while writing file!')
 
         return res.redirect('/teachers')
     })
