@@ -1,22 +1,31 @@
 {
   "students": [
     {
-      "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
-      "name": "Carlos da Silva",
-      "birth": 913680000000,
-      "email": "brenosilva0252@gmail.com",
-      "education": "4",
-      "credit": "12",
-      "id": 1
-    },
-    {
       "id": 2,
       "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
       "name": "Carlos Breno Soares da Silva",
-      "birth": -62100518400000,
+      "birth": -58318963200000,
+      "email": "beahvasco@gmail.com",
+      "education": "1",
+      "credit": "12"
+    },
+    {
+      "id": 3,
+      "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
+      "name": "Carlos Breno Soares da Silva",
+      "birth": -58318963200000,
+      "email": "beahvasco@gmail.com",
+      "education": "1",
+      "credit": "12"
+    },
+    {
+      "id": 4,
+      "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
+      "name": "Carlos Breno Soares da Silva",
+      "birth": 913680000000,
       "email": "brenosilva0252@gmail.com",
-      "education": "3",
-      "credit": "1131"
+      "education": "1",
+      "credit": "15"
     }
   ],
   "teachers": [

@@ -17,8 +17,7 @@ exports.edit = (req, res) => {
 
     const teacher = {
         ...teacherFound,
-        birth: date(teacherFound.birth)
-        // education: graduation(teacherFound.education, id)       
+        birth: date(teacherFound.birth).iso     
     }
     console.log(teacher.education)
 

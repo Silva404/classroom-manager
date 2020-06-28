@@ -19,10 +19,8 @@ exports.post = (req, res) => {
         }
     }
 
-    // const { work } = req.body
-
     let id = 1 
-    const lastId = data.students[data.students - 1]
+    const lastId = data.students[data.students.length - 1]
 
     if (lastId) {
         id = lastId.id + 1
@@ -31,7 +29,7 @@ exports.post = (req, res) => {
     birth = Date.parse(req.body.birth)
 
     data.students.push({
-        id: id,
+        id,
         ...req.body,
         birth,        
     })
@@ -65,8 +63,7 @@ exports.edit = (req, res) => {
 
     const student = {
         ...studentFound,
-        birth: date(studentFound.birth)
-        // education: graduation(studentFound.education, id)       
+        birth: date(studentFound.birth).iso     
     }
     console.log(student.education)
 

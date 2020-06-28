@@ -6,7 +6,13 @@ module.exports = {
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
         const year = date.getUTCFullYear()
 
-        return `${year}-${month}-${day}`
+        return {
+            day,
+            month,
+            year,
+            iso: `${year}-${month}-${day}`,
+            birthDay: `${day}/${month}`
+        }
     },
     age: (timestamp) => {
         const today = new Date()

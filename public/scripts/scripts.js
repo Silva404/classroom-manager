@@ -6,3 +6,5 @@ for (let item of menuItems) {
         item.classList.add('active')
     }
 }
+
+

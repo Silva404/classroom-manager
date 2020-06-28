@@ -24,13 +24,14 @@
                 <input type="hidden" name="id" value="{{ student.id }}">
             </form>
 
-            <form method="post" action="/students?_method=DELETE">
+            <form id="delete" method="post" action="/students?_method=DELETE">
                 <button type="submit">Delete</button>
                 <input type="hidden" name="id" value="{{ student.id }}">
             </form>
         </section>
 
-         <section class="image" style="background-image: url({{ student.image_Url }}"></section>
+        <section class="image" style="background-image: url({{ student.image_Url }}"></section>
 
+        {% include './confirm.njk' %}
     </div>
 {% endblock content %}
