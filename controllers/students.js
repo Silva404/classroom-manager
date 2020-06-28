@@ -10,19 +10,37 @@ exports.create = (req, res) => {
     return res.render('students/create')
 }
 
-exports.edit = (req, res) => {
-    const { id } = req.params
-    const studentFound = data.students.find(info => info.id == id)
-    if (!studentFound) return res.send(`You can't edit something that doesn't exists`)
+exports.post = (req, res) => {
+    const keys = Object.keys(req.body)
 
-    const student = {
-        ...studentFound,
-        birth: date(studentFound.birth)
-        // education: graduation(studentFound.education, id)       
+    for (let key of keys) {
+        if (req.body[key] == '') {
+            return res.send('Please fill all the fields!')
+        }
     }
-    console.log(student.education)
 
-    return res.render('students/edit', { student })
+    // const { work } = req.body
+
+    let id = 1 
+    const lastId = data.students[data.students - 1]
+
+    if (lastId) {
+        id = lastId.id + 1
+    }
+
+    birth = Date.parse(req.body.birth)
+
+    data.students.push({
+        id: id,
+        ...req.body,
+        birth,        
+    })
+
+    fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+        if (err) return res.send('Error ocurred while writing data.json')
+
+        return res.redirect('/students')
+    })
 }
 
 exports.show = (req, res) => {
@@ -40,44 +58,19 @@ exports.show = (req, res) => {
     return res.render('students/show', { student })
 }
 
-exports.post = (req, res) => {
-    const keys = Object.keys(req.body)
+exports.edit = (req, res) => {
+    const { id } = req.params
+    const studentFound = data.students.find(info => info.id == id)
+    if (!studentFound) return res.send(`You can't edit something that doesn't exists`)
 
-    for (let key of keys) {
-        if (req.body[key] == '') {
-            return res.send('Please fill all the fields!')
-        }
+    const student = {
+        ...studentFound,
+        birth: date(studentFound.birth)
+        // education: graduation(studentFound.education, id)       
     }
+    console.log(student.education)
 
-    let { name, birth, work, education, distance, presence } = req.body
-
-    let id = 1 
-    const lastItem = data.students[data.students - 1]
-    if (id != lastItem) {
-        id = lastItem + 1
-    }
-
-    birth = Date.parse(req.body.birth)    
-    const created_at = Date.now()
-    const newWork = work.split(',')
-
-
-    data.students.push({
-        name,
-        birth,
-        work: newWork,
-        id: id,
-        education,
-        presence,
-        distance,
-        created_at
-    })
-
-    fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
-        if (err) return res.send('Error ocurred while writing data.json')
-
-        return res.redirect('/students')
-    })
+    return res.render('students/edit', { student })
 }
 
 exports.put = (req, res) => {

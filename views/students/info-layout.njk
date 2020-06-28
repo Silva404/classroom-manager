@@ -11,35 +11,23 @@
     <div><input type="date" name="birth" value="{{ student.birth }}"></div>
 </div>
 <div class="item">
-    <div>Formation degree</div>
+    <div>Email</div>
+    <div><input type="email" name="email" value="{{ student.email }}"></div>
+</div>
+<div class="item">
+    <div>Education level</div>
     <div>
-        <select name="education" id="edu">
-            <option value="1" {% if student.education == 1 %} selected="selected" {% endif %}>High school</option>
-            <option value="2" {% if student.education == 2 %} selected="selected" {% endif %}>College degree</option>
-            <option value="3" {% if student.education == 3 %} selected="selected" {% endif %}>Masters degree</option>
-            <option value="4" {% if student.education == 4 %} selected="selected" {% endif %}>PHD degree</option>
+        <select name="education">
+            <option value="1" {% if student.education == 1 %} selected="selected" {% endif %}>Fifth grade</option>
+            <option value="2" {% if student.education == 2 %} selected="selected" {% endif %}>Third grade</option>
+            <option value="3" {% if student.education == 3 %} selected="selected" {% endif %}>Ninth grade</option>
+            <option value="4" {% if student.education == 4 %} selected="selected" {% endif %}>Sophomore</option>
         </select>
     </div>
 </div>
 <div class="item">
-    <div>Education</div>
-    {% if student.distance == 'on' %}
-        <input type="radio" name="distance" checked="checked">
-        <label for="distance">Distance learning</label>
-        <input type="radio" name="presence">
-        <label for="presence">Traditional classes</label>
-
-    {% else %}
-        <input type="radio" name="distance">
-        <label for="distance">Distance learning</label>
-        <input type="radio" name="presence" checked="checked">
-        <label for="presence">Traditional classes</label>
-    {% endif %}
-
-</div>
-<div class="item">
-    <div>Field of work</div>
-    <div><input type="text" name="work" value="{{ student.work }}"></div>
+    <div>Course credit</div>
+    <div><input type="number" name="credit" value="{{ student.credit }}"></div>
 </div>
 
 <button type="submit">Save</button>

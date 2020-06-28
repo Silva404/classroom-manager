@@ -1,18 +1,22 @@
 {
   "students": [
     {
+      "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
+      "name": "Carlos da Silva",
+      "birth": 913680000000,
+      "email": "brenosilva0252@gmail.com",
+      "education": "4",
+      "credit": "12",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80",
       "name": "Carlos Breno Soares da Silva",
-      "birth": 914371200000,
-      "work": [
-        "Futebol",
-        " Ecologia",
-        " Fisioterapia"
-      ],
-      "id": null,
-      "education": "1",
-      "presence": "on",
-      "distance": "on",
-      "created_at": 1593312913365
+      "birth": -62100518400000,
+      "email": "brenosilva0252@gmail.com",
+      "education": "3",
+      "credit": "1131"
     }
   ],
   "teachers": [

@@ -16,7 +16,7 @@
     <body>
         <header>
             <div class="links">
-                <a href="/teachers" class="active">Teachers</a>
+                <a href="/teachers">Teachers</a>
                 <a href="/students">Students</a>
                 <div class="underbar"></div>
             </div>
@@ -30,6 +30,8 @@
             <p>Todos direitos reservados, Gym manager.
             </p>
         </footer>
-        {% block script %}{% endblock script %}
+        {% block script %}
+        <script src="/scripts/scripts.js"></script>
+        {% endblock script %}
     </body>
 </html>
