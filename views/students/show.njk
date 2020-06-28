@@ -1,0 +1,72 @@
+{% extends 'layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/index.css">
+{% endblock styles %}
+
+{% block title %}
+    <title>Teacher info</title>
+{% endblock title %}
+
+{% block content %}
+    <form class="card" method="post" action="/students">
+        <section class="info">
+            <div class="tittle">
+                <h1>Teacher info</h1>
+                <span>Already have an account?
+                    <a href="#">Sign in</a>
+                </span>
+            </div>
+
+            <div class="item">
+                <div>Your name</div>
+                <div>{{ student.name }}</div>
+            </div>
+            <div class="item">
+                <div>Age</div>
+                <div>{{ student.age }}</div>
+            </div>
+            <div class="item">
+                <div>Formation degree</div>
+                <div>
+                    {% if student.education == "1" %}
+                        High school
+                    {% elif student.education == "2" %}
+                        College Degree
+                    {% elif student.education == "3" %}
+                        Master's Degree
+                    {% else %}
+                        PHD Degree
+                    {% endif %}
+                </div>
+            </div>
+            <div class="item">
+                <div>Education</div>
+                <div>
+                    {% if student.distance  == "on" and student.presence == "on" %}
+                        Tradicional classes, Distance Learning
+                    {% elif student.presence == "on" %}
+                        Tradicional classes
+                    {% else %}
+                        Distance Learning
+                    {% endif %}
+                </div>
+            </div>
+            <div class="item">
+                <div>Field of work</div>
+                <div>
+                {% for work in student.work %}
+                {{ work }}
+                {% endfor %}
+                </div>                
+            </div>
+            <div class="item">
+                <div>Member Since</div>
+                <div>{{ student.created_at }}</div>
+            </div>
+            <a href="/students/{{ student.id }}/edit" class="button">Edit</a>
+        </section>
+
+        <section class="image" style="background-image: url({{ student.image_Url }}"></section>
+    </form>
+{% endblock content %}

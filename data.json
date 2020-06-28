@@ -1,9 +1,27 @@
 {
+  "students": [
+    {
+      "name": "Carlos Breno Soares da Silva",
+      "birth": 914371200000,
+      "work": [
+        "Futebol",
+        " Ecologia",
+        " Fisioterapia"
+      ],
+      "id": null,
+      "education": "1",
+      "presence": "on",
+      "distance": "on",
+      "created_at": 1593312913365
+    }
+  ],
   "teachers": [
     {
       "name": "Breno Silvaaa",
       "birth": 911952000000,
-      "work": "Computer Science",
+      "work": [
+        "Computer Science"
+      ],
       "id": 1,
       "education": "3",
       "distance": "on",
@@ -14,7 +32,11 @@
     {
       "name": "Paperside",
       "birth": 915062400000,
-      "work": "Futebol, Ecologia, Fisioterapia",
+      "work": [
+        "Futebol",
+        " Ecologia",
+        " Fisioterapia"
+      ],
       "id": 2,
       "education": "3",
       "distance": "on",
@@ -24,7 +46,11 @@
     {
       "name": "Breno Soares",
       "birth": 883699200000,
-      "work": "Futebol, Ecologia, Fisioterapia",
+      "work": [
+        "Futebol",
+        " Ecologia",
+        " Fisioterapia"
+      ],
       "id": 3,
       "education": "2",
       "presence": "on",
@@ -33,14 +59,30 @@
     },
     {
       "name": "Brenoo",
-      "birth": -61759584000000,
-      "work": "Futebol Natação Oi",
+      "birth": null,
+      "work": [
+        "Futebol Natação Oi"
+      ],
       "id": 4,
       "education": "4",
       "presence": "on",
       "distance": "on",
       "created_at": 1593206743589,
       "image_Url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=804&q=80"
+    },
+    {
+      "name": "Carlos Breno Soares da Silva",
+      "birth": 915062400000,
+      "work": [
+        "Futebol",
+        "Ecologia",
+        "Fisioterapia"
+      ],
+      "id": 5,
+      "education": "4",
+      "presence": "on",
+      "distance": "on",
+      "created_at": 1593311516733
     }
   ]
 }

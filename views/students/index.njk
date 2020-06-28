@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="card table-container">
-        <a href="/teachers/create" class="button">NEW TEACHER</a>
+        <a href="/students/create" class="button">NEW STUDENT</a>
         <table >
             <thead>
                 <tr>
@@ -16,20 +16,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% for teacher in teachers %}
+                {% for student in students %}
                     <tr>
                         <td>
-                            <span style="background-image: url({{ teacher.image_Url}})"></span>
-                            {{teacher.name}}
+                            <span style="background-image: url({{ student.image_Url}})"></span>
+                            {{student.name}}
                         </td>
                         <td>
-                            {% for work in teacher.work %}
+                            {% for work in student.work %}
                                 {{ work }}
                             {% endfor %}
                         </td>
 
                         <td>
-                            <a href="/teachers/{{ teacher.id }}" class="button">Info</a>
+                            <a href="/students/{{ student.id }}" class="button">Info</a>
                         </td>
                     </tr>
                 {% endfor %}

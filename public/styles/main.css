@@ -70,6 +70,10 @@ header a:hover::after {
     transition: width 200ms ease;
 }
 
+.links .active {
+    font-weight: bold;    
+}
+
 footer {
     color: var(--font-color);
     margin-top: auto;

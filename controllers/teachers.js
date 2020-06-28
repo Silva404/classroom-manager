@@ -1,11 +1,13 @@
 const fs = require('fs')
-const data = require('./data.json')
-const { date, age, formatter } = require('./utils.js')
+const data = require('../data.json')
+const { date, age, formatter } = require('../utils.js')
 
 exports.index = (req, res) => {
-    
-
     res.render('teachers/index', { teachers: data.teachers })
+}
+
+exports.create = (req, res) => {
+    return res.render('teachers/create')
 }
 
 exports.edit = (req, res) => {
@@ -32,7 +34,7 @@ exports.show = (req, res) => {
         ...teacherFound,
         age: age(teacherFound.birth),
         created_at: formatter.format(teacherFound.created_at),
-        work: teacherFound.work.split(",")
+        // work: teacherFound.work.split(',')
     }
 
     return res.render('teachers/show', { teacher })
@@ -53,11 +55,13 @@ exports.post = (req, res) => {
     const id = data.teachers.length + 1
     const created_at = Date.now()
 
+    const newWork = work.split(',')
+
 
     data.teachers.push({
         name,
         birth,
-        work,
+        work: newWork,
         id,
         education,
         presence,
@@ -83,11 +87,14 @@ exports.put = (req, res) => {
         }
     })
 
+    const newWork = changedInstructor.work.split(',')
+
     const teacher = {
         ...changedInstructor,
         ...req.body,
         birth: Date.parse(req.body.birth),
-        id: Number(req.body.id)
+        id: Number(req.body.id),
+        work: newWork
     }
 
     data.teachers[index] = teacher

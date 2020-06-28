@@ -1,0 +1,36 @@
+{% extends 'layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/index.css">
+{% endblock styles %}
+
+{% block title %}
+    <title>Create your profile</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="card">
+        <section class="info">
+            <form method="post" action="/students?_method=PUT">
+
+                <div class="tittle">
+                    <h1>Get started</h1>
+                    <span>Already have an account?
+                        <a href="#">Sign in</a>
+                    </span>
+                </div>
+
+                {% include 'students/info-layout.njk'%}
+                <input type="hidden" name="id" value="{{ student.id }}">
+            </form>
+
+            <form method="post" action="/students?_method=DELETE">
+                <button type="submit">Delete</button>
+                <input type="hidden" name="id" value="{{ student.id }}">
+            </form>
+        </section>
+
+         <section class="image" style="background-image: url({{ student.image_Url }}"></section>
+
+    </div>
+{% endblock content %}
