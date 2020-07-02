@@ -1,5 +1,5 @@
 module.exports = {
-    date: (timestamp) => {
+    date(timestamp) {
         const date = new Date(timestamp)
 
         const day = `0${date.getUTCDate()}`.slice(-2)
@@ -14,7 +14,7 @@ module.exports = {
             birthDay: `${day}/${month}`
         }
     },
-    age: (timestamp) => {
+    age(timestamp) {
         const today = new Date()
         const birthDate = new Date(timestamp)
 
@@ -29,7 +29,7 @@ module.exports = {
 
         return age
     },
-    graduation: (education, id) => {        
+    graduation(education, id) {        
         // const options = [
         //     `<options selected>'High school'</options>`,
         //     `<options selected>'College Degree'</options>`,
