@@ -1,4 +1,5 @@
 const { date, age, formatter } = require('../../lib/utils')
+const Teacher = require('')
 
 module.exports = {
     index(req, res) {
@@ -15,6 +16,7 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
+        Teacher.all()
     },
     show(req, res) {
         return
