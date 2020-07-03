@@ -24,7 +24,7 @@
             </div>
             <div class="item">
                 <div>Age</div>
-                <div>{{ teacher.age }}</div>
+                <div>{{ teacher.birth_date }}</div>
             </div>
             <div class="item">
                 <div>Formation degree</div>
@@ -43,19 +43,21 @@
             <div class="item">
                 <div>Education</div>
                 <div>
-                    {% if teacher.distance  == "on" and teacher.presence == "on" %}
+                    {{teacher.education_level}}
+                    {# {% if teacher.distance  == "on" and teacher.presence == "on" %}
                         Tradicional classes, Distance Learning
                     {% elif teacher.presence == "on" %}
                         Tradicional classes
                     {% else %}
                         Distance Learning
-                    {% endif %}
+                    {% endif %} #}
                 </div>
             </div>
             <div class="item">
-                <div>Field of work</div>
+                <div>Subjects taught</div>
                 <div>
-                {% for work in teacher.work %}
+                    {# {{teacher.subjects_taught}} #}
+                {% for work in teacher.subjects_taught %}
                 {{ work }}
                 {% endfor %}
                 </div>                
@@ -67,6 +69,6 @@
             <a href="/teachers/{{ teacher.id }}/edit" class="button">Edit</a>
         </section>
 
-        <section class="image" style="background-image: url({{ teacher.image_Url }}"></section>
+        <section class="image" style="background-image: url({{ teacher.avatar_url }}"></section>
     </form>
 {% endblock content %}

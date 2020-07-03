@@ -24,11 +24,23 @@ module.exports = {
     },
     show(req, res) {
         Teacher.find(req.params.id, teacher => {
-            return res.render('/teachers/show', { teacher })
+            if (!teacher) return res.send('Teacher not found')
+
+            teacher.birth_date = age(teacher.birth_date)
+            teacher.created_at = date(teacher.created_at).format
+            teacher.subjects_taught = teacher.subjects_taught.split(',')
+
+            return res.render('teachers/show', { teacher })
         })
     },
     edit(req, res) {
-        return
+        Teacher.find(req.params.id, teacher => {
+            if (!teacher) return res.send('Teacher not found')
+
+            teacher.birth_date = date(teacher.birth_date).iso
+
+            return res.render('teachers/edit', { teacher })
+        })
     },
     put(req, res) {
         const keys = Object.keys(req.body)
@@ -38,8 +50,14 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
+
+        Teacher.update(req.body, () => {
+            return res.redirect(`/teachers/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        return
+        Teacher.delete(req.body.id, () => {
+            return res.redirect(`/teachers/`)
+        })
     },
 }
