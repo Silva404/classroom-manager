@@ -1,9 +1,11 @@
 const { date, age, formatter } = require('../../lib/utils')
-const Teacher = require('')
+const Teacher = require('../models/Teacher')
 
 module.exports = {
     index(req, res) {
-        res.render('teachers/index')
+        Teacher.all( teacher => {
+            return res.render('teachers/index', { teacher })
+        })        
     },
     create(req, res) {
         return res.render('teachers/create')
@@ -16,7 +18,9 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
-        Teacher.all()
+        Teacher.create(req.body, teacher => {
+            return res.redirect(`/teachers/${teacher.id}`)
+        })
     },
     show(req, res) {
         return

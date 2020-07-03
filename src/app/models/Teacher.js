@@ -2,8 +2,12 @@ const { date, age, formatter } = require('../../lib/utils')
 const db = require('../../config/db')
 
 module.exports = {
-    all() {
+    all(callback) {
+        db.query(`SELECT * FROM teachers`, (err, results) => {
+            if (err) throw `Database ${err}`
 
+            callback(results.rows)
+        })
     },
     create(data, callback) {
         const query = `
@@ -31,6 +35,11 @@ module.exports = {
 
         db.query(query, values, (err, results) => {
             if (err) throw `Database ${err}`
+
+            callback(results.rows[0])
         })
+    },find(data, callback) {
+        const
     }
+    
 }
