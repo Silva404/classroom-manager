@@ -1,6 +1,6 @@
 <div class="item">
     <div>Image profile</div>
-    <div><input type="text" name="image_Url" value="{{ student.image_Url }}" placeholder="http://"></div>
+    <div><input type="text" name="avatar_url" value="{{ student.avatar_url }}" placeholder="http://"></div>
 </div>
 <div class="item">
     <div>Your name</div>
@@ -8,7 +8,7 @@
 </div>
 <div class="item">
     <div>Birth date</div>
-    <div><input type="date" name="birth" value="{{ student.birth }}"></div>
+    <div><input type="date" name="birth_date" value="{{ student.birth_date }}"></div>
 </div>
 <div class="item">
     <div>Email</div>
@@ -17,17 +17,17 @@
 <div class="item">
     <div>Education level</div>
     <div>
-        <select name="education">
-            <option value="1" {% if student.education == 1 %} selected="selected" {% endif %}>Fifth grade</option>
-            <option value="2" {% if student.education == 2 %} selected="selected" {% endif %}>Third grade</option>
-            <option value="3" {% if student.education == 3 %} selected="selected" {% endif %}>Ninth grade</option>
-            <option value="4" {% if student.education == 4 %} selected="selected" {% endif %}>Sophomore</option>
+        <select name="education_level">
+            <option value="1" {% if student.education_level == 1 %} selected="selected" {% endif %}>Fifth grade</option>
+            <option value="2" {% if student.education_level == 2 %} selected="selected" {% endif %}>Third grade</option>
+            <option value="3" {% if student.education_level == 3 %} selected="selected" {% endif %}>Ninth grade</option>
+            <option value="4" {% if student.education_level == 4 %} selected="selected" {% endif %}>Sophomore</option>
         </select>
     </div>
 </div>
 <div class="item">
     <div>Course credit</div>
-    <div><input type="number" name="credit" value="{{ student.credit }}"></div>
+    <div><input type="number" name="course_credit" value="{{ student.course_credit }}"></div>
 </div>
 
 <button type="submit">Save</button>

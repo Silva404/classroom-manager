@@ -24,7 +24,7 @@
             </div>
             <div class="item">
                 <div>Age</div>
-                <div>{{ student.age }}</div>
+                <div>{{ student.birth_date }}</div>
             </div>
             <div class="item">
                 <div>Formation degree</div>
@@ -59,6 +59,6 @@
             <a href="/students/{{ student.id }}/edit" class="button">Edit</a>
         </section>
 
-        <section class="image" style="background-image: url({{ student.image_Url }}"></section>
+        <section class="image" style="background-image: url({{ student.avatar_url }}"></section>
     </form>
 {% endblock content %}

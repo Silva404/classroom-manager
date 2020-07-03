@@ -11,21 +11,22 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Work</th>
-                    <th>Info</th>
+                    <th>Education level</th>
+                    <th>More</th>
                 </tr>
             </thead>
             <tbody>
                 {% for student in students %}
                     <tr>
                         <td>
-                            <span style="background-image: url({{ student.image_Url}})"></span>
+                            <span style="background-image: url({{ student.avatar_url}})"></span>
                             {{student.name}}
                         </td>
                         <td>
-                            {% for work in student.work %}
-                                {{ work }}
-                            {% endfor %}
+                             {% if student.education_level == 1 %} Fifth grade {% endif %}
+                             {% if student.education_level == 2 %} Third grade {% endif %}
+                             {% if student.education_level == 3 %} Nith grade {% endif %}
+                             {% if student.education_level == 4 %} Sophomore {% endif %}
                         </td>
 
                         <td>
