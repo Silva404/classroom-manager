@@ -19,7 +19,7 @@ module.exports = {
             class_type,
             subjects_taught,
             create_at
-            ) VALUE ($1, $2, $3, $4,$5, $6, $7)
+            ) VALUES ($1, $2, $3, $4,$5, $6, $7)
             RETURNING id
         `
 
@@ -30,7 +30,7 @@ module.exports = {
             data.education_level,
             data.class_type,
             data.subjects_taught,
-            date(data.create_at).iso
+            date(Date.now()).iso
         ]        
 
         db.query(query, values, (err, results) => {
@@ -38,8 +38,14 @@ module.exports = {
 
             callback(results.rows[0])
         })
-    },find(data, callback) {
-        const
+    },
+    find(id, callback) {
+        db.query(`SELECT * FROM teachers WHERE id = $1`, [id], (err, results) => {
+            if (err) throw `Data ${err}`
+
+            callback(results.rows[0])
+        })
+        
     }
     
 }

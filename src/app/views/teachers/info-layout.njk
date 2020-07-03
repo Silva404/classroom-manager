@@ -1,6 +1,6 @@
 <div class="item">
     <div>Image profile</div>
-    <div><input type="text" name="image_Url" value="{{ teacher.image_Url }}" placeholder="http://"></div>
+    <div><input type="text" name="avatar_url" value="{{ teacher.avatar_url }}" placeholder="http://"></div>
 </div>
 <div class="item">
     <div>Your name</div>
@@ -8,38 +8,38 @@
 </div>
 <div class="item">
     <div>Birth date</div>
-    <div><input type="date" name="birth" value="{{ teacher.birth }}"></div>
+    <div><input type="date" name="birth_date" value="{{ teacher.birth_date }}"></div>
 </div>
 <div class="item">
     <div>Formation degree</div>
     <div>
-        <select name="education" id="edu">
-            <option value="1" {% if teacher.education == 1 %} selected="selected" {% endif %}>High school</option>
-            <option value="2" {% if teacher.education == 2 %} selected="selected" {% endif %}>College degree</option>
-            <option value="3" {% if teacher.education == 3 %} selected="selected" {% endif %}>Masters degree</option>
-            <option value="4" {% if teacher.education == 4 %} selected="selected" {% endif %}>PHD degree</option>
+        <select name="education_level" id="edu">
+            <option value="1" {% if teacher.education_level == 1 %} selected="selected" {% endif %}>High school</option>
+            <option value="2" {% if teacher.education_level == 2 %} selected="selected" {% endif %}>College degree</option>
+            <option value="3" {% if teacher.education_level == 3 %} selected="selected" {% endif %}>Masters degree</option>
+            <option value="4" {% if teacher.education_level == 4 %} selected="selected" {% endif %}>PHD degree</option>
         </select>
     </div>
 </div>
 <div class="item">
     <div>Education</div>
-    {% if teacher.distance == 'on' %}
-        <input type="radio" name="distance" checked="checked">
-        <label for="distance">Distance learning</label>
+    {% if teacher.class_type == 'on' %}
+        <input type="radio" name="class_type" checked="checked">
+        <label for="class_type">Distance learning</label>
         <input type="radio" name="presence">
         <label for="presence">Traditional classes</label>
 
     {% else %}
-        <input type="radio" name="distance">
-        <label for="distance">Distance learning</label>
+        <input type="radio" name="class_type">
+        <label for="class_type">Distance learning</label>
         <input type="radio" name="presence" checked="checked">
         <label for="presence">Traditional classes</label>
     {% endif %}
 
 </div>
 <div class="item">
-    <div>Field of work</div>
-    <div><input type="text" name="work" value="{{ teacher.work }}"></div>
+    <div>Subjects taught</div>
+    <div><input type="text" name="subjects_taught" value="{{ teacher.subjects_taught }}"></div>
 </div>
 
 <button type="submit">Save</button>

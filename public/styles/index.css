@@ -1,8 +1,8 @@
 .card {
     display: grid;
-    grid-template-columns: repeat(2, 1fr)   ;
+    grid-template-columns: repeat(auto-fit, 1fr)   ;
     width: 85%;
-    min-width: 600px;
+    min-width: 400px;
     margin: 3em auto;
     box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.2);
 
@@ -111,7 +111,7 @@ a.button {
 .image {
     background-size: cover;
     background-position: center;
-    /* background: url('https://source.unsplash.com/collection/517198/900x900') no-repeat center center / cover; */
+    background: url('https://images.unsplash.com/photo-1525571453712-090270b8354f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center center / cover;
 } 
 
 table {
@@ -164,4 +164,11 @@ td {
     width: 20%;
     font-size: 1.2rem;
     margin-bottom: 2em;
+}
+
+@media (max-width: 700px) {
+    .info {
+        background: #ffffff;
+        padding: 5em 2em;
+    }
 }

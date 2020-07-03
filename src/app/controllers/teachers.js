@@ -3,8 +3,8 @@ const Teacher = require('../models/Teacher')
 
 module.exports = {
     index(req, res) {
-        Teacher.all( teacher => {
-            return res.render('teachers/index', { teacher })
+        Teacher.all( teachers => {
+            return res.render('teachers/index', { teachers })
         })        
     },
     create(req, res) {
@@ -23,7 +23,9 @@ module.exports = {
         })
     },
     show(req, res) {
-        return
+        Teacher.find(req.params.id, teacher => {
+            return res.render('/teachers/show', { teacher })
+        })
     },
     edit(req, res) {
         return

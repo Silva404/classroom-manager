@@ -19,11 +19,11 @@
                 {% for teacher in teachers %}
                     <tr>
                         <td>
-                            <span style="background-image: url({{ teacher.image_Url}})"></span>
+                            <span style="background-image: url({{ teacher.avatar_url}})"></span>
                             {{teacher.name}}
                         </td>
                         <td>
-                            {% for work in teacher.work %}
+                            {% for work in teacher.subjects_taught %}
                                 {{ work }}
                             {% endfor %}
                         </td>

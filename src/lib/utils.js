@@ -11,7 +11,7 @@ module.exports = {
             month,
             year,
             iso: `${year}-${month}-${day}`,
-            birthDay: `${day}/${month}`
+            birthDay: `${day}/${month}`,
         }
     },
     age(timestamp) {
@@ -29,13 +29,7 @@ module.exports = {
 
         return age
     },
-    graduation(education, id) {        
-        // const options = [
-        //     `<options selected>'High school'</options>`,
-        //     `<options selected>'College Degree'</options>`,
-        //     `<options selected>'Masters Degree'</options>`,
-        //     `<options selected>'PHD Degree'</options>`
-        // ]
+    graduation(education, id) {
 
         if (education == id){
             return education.selected
