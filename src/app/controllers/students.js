@@ -48,12 +48,14 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
-        
+
         Student.update(req.body, () => {
             return res.redirect(`students/${req.body.id}`)
         })
     },
     delete(req, res) {
-        return
+        Student.delete(req.body.id, () => {
+            return res.redirect('students/index')
+        }) 
     },
 }

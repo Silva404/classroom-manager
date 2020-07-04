@@ -53,8 +53,8 @@ module.exports = {
                 birth_date=($3),
                 email=($4),
                 education_level=($5),
-                course_credit=($6),
-                WHERE id $7     
+                course_credit=($6)
+                WHERE id = $7     
         `
 
         const values = [
@@ -68,6 +68,13 @@ module.exports = {
         ]
 
         db.query(query, values, (err, results) => {
+            if (err) throw `Data ${err}`
+
+            callback()
+        })
+    },
+    delete(id, callback) {
+        db.query(`DELETE FROM students WHERE id = $1`, [id], (err, results) => {
             if (err) throw `Data ${err}`
 
             callback()
