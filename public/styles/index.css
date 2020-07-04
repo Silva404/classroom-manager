@@ -93,7 +93,7 @@ a.button {
     padding: 1em 0;
     width: 100%;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #ffffff;
     border: 0;
 }
@@ -133,6 +133,7 @@ table {
     font-size: 1.4rem;
     box-shadow: 0 1.5em 2.2em 0 rgba(0, 0, 0, 0.3);
 }
+
 .table-container tr th:first-child  {
     padding-left: 3em;
 }
@@ -195,4 +196,33 @@ td {
     .table-container {
         padding: 1.5em;
     }
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.header input {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    padding:  0.5em 1em;
+    
+}
+
+.header a {
+    width: 40% !important;
+}
+
+.header a,
+.header button {
+    margin: 0 ;
+}
+
+.header form {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+
 }

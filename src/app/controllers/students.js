@@ -42,7 +42,10 @@ module.exports = {
 
             student.birth_date = date(student.birth_date).iso
 
-            return res.render('students/edit', { student })
+            Student.selectTeacherOptions(options => {
+
+            return res.render('students/edit', { student, Teachers_options: options })
+        })
         })
     },
     put(req, res) {
