@@ -6,7 +6,13 @@
 
 {% block content %}
     <div class="card table-container">
-        <a href="/students/create" class="button">NEW STUDENT</a>
+        <div class="header">
+            <a href="/students/create" class="button">New Student</a>
+            <form action="/students" method="get">
+                <input type="text" name="filter" placeholder="Search students or teacher">
+                <button type="submit">Filter</button>
+            </form>
+        </div>
         <table >
             <thead>
                 <tr>

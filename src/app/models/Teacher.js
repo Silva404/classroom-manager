@@ -35,7 +35,7 @@ module.exports = {
             data.class_type,
             data.subjects_taught,
             date(Date.now()).iso
-        ]        
+        ]
 
         db.query(query, values, (err, results) => {
             if (err) throw `Database ${err}`
@@ -49,7 +49,20 @@ module.exports = {
 
             callback(results.rows[0])
         })
-        
+
+    },
+    findBy(filter, callback) {
+        db.query(`
+        SELECT teachers.*, count(students) AS total_students
+        FROM teachers 
+        LEFT JOIN students ON (students.teacher_id = teachers.id)
+        WHERE teachers.name ILIKE '%${filter}%'
+        GROUP BY teachers.id
+        ORDER BY name ASC`, (err, results) => {
+            if (err) throw `Database ${err}`
+
+            callback(results.rows)
+        })
     },
     update(data, callback) {
         const query = `
@@ -84,18 +97,6 @@ module.exports = {
             if (err) throw `Database ${err}`
 
             return callback()
-        })
-    },
-    filter(filter, callback) {
-        db.query(`
-        SELECT teachers.*, count(students) AS total_students
-        FROM teachers 
-        LEFT JOIN students ON (students.teacher_id = teachers.id)
-        GROUP BY teachers.id
-        ORDER BY name ASC`, (err, results) => {
-            if (err) throw `Database ${err}`
-
-            callback(results.rows)
         })
     }
 }

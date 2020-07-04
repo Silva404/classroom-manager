@@ -5,7 +5,7 @@ module.exports = {
     all(callback) {
         db.query(`SELECT students.*, teachers.name AS teacher_name
         FROM students 
-        LEFT JOIN teachers ON (students.teacher_id = teachers.id)`,(err, results) => {
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id)`, (err, results) => {
             if (err) throw `Data ${err}`
             callback(results.rows)
         })
@@ -50,6 +50,15 @@ module.exports = {
             if (err) throw `Database ${err}`
 
             callback(results.rows[0])
+        })
+    },
+    findBy(filter, callback) {
+        db.query(`SELECT students.*, teachers.name AS teacher_name
+        FROM students 
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id)
+        WHERE students.name ILIKE '%${filter}%'`, (err, results) => {
+            if (err) throw `Data ${err}`
+            callback(results.rows)
         })
     },
     update(data, callback) {

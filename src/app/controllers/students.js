@@ -4,14 +4,22 @@ const db = require('../../config/db')
 
 module.exports = {
     index(req, res) {
-        Student.all(students => {
-            return res.render('students/index', { students })
-        })
+        const { filter } = req.query
+
+        if (filter) {
+            Student.findBy(filter ,students => {
+                return res.render('students/index', { students })
+            })
+        } else {
+            Student.all(students => {
+                return res.render('students/index', { students })
+            })
+        }
     },
     create(req, res) {
-        
+
         Student.selectTeacherOptions(options => {
-            return res.render('students/create', {  Teachers_options: options})
+            return res.render('students/create', { Teachers_options: options })
         })
     },
     post(req, res) {
@@ -19,7 +27,7 @@ module.exports = {
 
         for (let key of keys) {
             if (req.body[key] == '') {
-                return res.send('Please fill all the fields!') 
+                return res.send('Please fill all the fields!')
             }
         }
 
@@ -33,7 +41,7 @@ module.exports = {
             student.birth_date = age(student.birth_date)
             student.created_at = date(student.created_at).format
 
-            
+
             return res.render('students/show', { student })
         })
     },
@@ -44,8 +52,8 @@ module.exports = {
 
             Student.selectTeacherOptions(options => {
 
-            return res.render('students/edit', { student, Teachers_options: options })
-        })
+                return res.render('students/edit', { student, Teachers_options: options })
+            })
         })
     },
     put(req, res) {

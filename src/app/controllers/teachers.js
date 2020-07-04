@@ -6,14 +6,14 @@ module.exports = {
         const { filter } = req.query
 
         if (filter) {
-            Teacher.filter( teachers => {
+            Teacher.findBy(filter ,teachers => {
                 return res.render('teachers/index', { teachers })
-            })  
+            })
         } else {
-            Teacher.all( teachers => {
+            Teacher.all(teachers => {
                 return res.render('teachers/index', { teachers })
-            })  
-        }              
+            })
+        }
     },
     create(req, res) {
         return res.render('teachers/create')
