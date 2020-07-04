@@ -12,7 +12,7 @@
     <form class="card" method="post" action="/students">
         <section class="info">
             <div class="tittle">
-                <h1>Teacher info</h1>
+                <h1>Student info</h1>
                 <span>Already have an account?
                     <a href="#">Sign in</a>
                 </span>
@@ -26,31 +26,30 @@
                 <div>Age</div>
                 <div>{{ student.birth_date }}</div>
             </div>
+             <div class="item">
+                <div>Email</div>
+                <div>{{ student.email }}</div>
+            </div>
             <div class="item">
-                <div>Formation degree</div>
+                <div>Education level</div>
                 <div>
-                    {% if student.education == "1" %}
-                        High school
-                    {% elif student.education == "2" %}
-                        College Degree
-                    {% elif student.education == "3" %}
-                        Master's Degree
-                    {% else %}
-                        PHD Degree
+                    {% if student.education_level == 1 %}
+                        Fifth grade
+                    {% endif %}
+                    {% if student.education_level == 2 %}
+                        Third grade
+                    {% endif %}
+                    {% if student.education_level == 3 %}
+                        Nith grade
+                    {% endif %}
+                    {% if student.education_level == 4 %}
+                        Sophomore
                     {% endif %}
                 </div>
             </div>
             <div class="item">
-                <div>Education</div>
-                <div>
-                    {% if student.distance  == "on" and student.presence == "on" %}
-                        Tradicional classes, Distance Learning
-                    {% elif student.presence == "on" %}
-                        Tradicional classes
-                    {% else %}
-                        Distance Learning
-                    {% endif %}
-                </div>
+                <div>Course credits</div>
+                <div>{{ student.course_credit}}  </div>
             </div>
             <div class="item">
                 <div>Member Since</div>

@@ -1,4 +1,4 @@
-const { date, age, formatter } = require('../../lib/utils')
+const { date, age } = require('../../lib/utils')
 const Student = require('../models/Student')
 
 module.exports = {
@@ -18,6 +18,7 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
+
         Student.create(req.body, student => {
             return res.redirect(`students/${student.id}`, { student })
         })
@@ -34,8 +35,7 @@ module.exports = {
     edit(req, res) {
         Student.find(req.params.id, student => {
 
-            student.birth_date = age(student.birth_date)
-            student.created_at = date(student.created_at).iso
+            student.birth_date = date(student.birth_date).iso
 
             return res.render('students/edit', { student })
         })
@@ -48,6 +48,10 @@ module.exports = {
                 return res.send('Please fill all the fields!')
             }
         }
+        
+        Student.update(req.body, () => {
+            return res.redirect(`students/${req.body.id}`)
+        })
     },
     delete(req, res) {
         return

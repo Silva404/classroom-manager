@@ -14,7 +14,7 @@
             <form method="post" action="/students?_method=PUT">
 
                 <div class="tittle">
-                    <h1>Get started</h1>
+                    <h1>Make changes</h1>
                     <span>Already have an account?
                         <a href="#">Sign in</a>
                     </span>
@@ -30,7 +30,7 @@
             </form>
         </section>
 
-        <section class="image" style="background-image: url({{ student.image_Url }}"></section>
+        <section class="image" style="background-image: url({{ student.avatar_url }}"></section>
 
         {% include './confirm.njk' %}
     </div>

@@ -56,7 +56,7 @@ module.exports = {
             education_level=($4),
             class_type=($5),
             subjects_taught=($6)
-            WHERE id = $7
+            WHERE id $7
         `
 
         const values = [

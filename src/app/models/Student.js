@@ -1,6 +1,5 @@
-const { date, age, formatter } = require('../../lib/utils')
+const { date } = require('../../lib/utils')
 const db = require('../../config/db')
-const students = require('../controllers/students')
 
 module.exports = {
     all(callback) {
@@ -30,7 +29,7 @@ module.exports = {
             data.email,
             data.education_level,
             data.course_credit,
-            date(data.created_at).iso
+            date(Date.now()).iso
         ]
 
         db.query(query, values, (err, results) => {
@@ -44,6 +43,34 @@ module.exports = {
             if (err) throw `Database ${err}`
 
             callback(results.rows[0])
+        })
+    },
+    update(data, callback) {
+        const query = `
+            UPDATE students SET 
+                name=($1),
+                avatar_url=($2),
+                birth_date=($3),
+                email=($4),
+                education_level=($5),
+                course_credit=($6),
+                WHERE id $7     
+        `
+
+        const values = [
+            data.name,
+            data.avatar_url,
+            date(data.birth_date).iso,
+            data.email,
+            data.education_level,
+            data.course_credit,
+            data.id
+        ]
+
+        db.query(query, values, (err, results) => {
+            if (err) throw `Data ${err}`
+
+            callback()
         })
     }
 }
