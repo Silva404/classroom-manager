@@ -12,6 +12,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Education level</th>
+                    <th>Teacher</th>
                     <th>More</th>
                 </tr>
             </thead>
@@ -28,7 +29,9 @@
                              {% if student.education_level == 3 %} Nith grade {% endif %}
                              {% if student.education_level == 4 %} Sophomore {% endif %}
                         </td>
-
+                        <td>
+                            {{ student.teacher_name }}
+                        </td>
                         <td>
                             <a href="/students/{{ student.id }}" class="button">Info</a>
                         </td>

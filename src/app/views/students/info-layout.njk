@@ -29,5 +29,18 @@
     <div>Course credit</div>
     <div><input type="number" name="course_credit" value="{{ student.course_credit }}"></div>
 </div>
+<div class="item">
+    <div>Teacher</div>
+    <select name="teacher">
+        {% for teacher in Teachers_options %}
+            <option value="teacher_id">
+                {% if student.teacher_id == teacher.id %}
+                    
+                {% endif %}
+                {{ teacher.name }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
 
 <button type="submit">Save</button>

@@ -12,7 +12,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Work</th>
-                    <th>Info</th>
+                    <th>Students</th>
+                    <th>More</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,11 +24,11 @@
                             {{teacher.name}}
                         </td>
                         <td>
-                            {% for work in teacher.subjects_taught %}
-                                {{ work }}
-                            {% endfor %}
+                            {{ teacher.subjects_taught }}
                         </td>
-
+                        <td>
+                            {{ teacher.total_students}}
+                        </td>
                         <td>
                             <a href="/teachers/{{ teacher.id }}" class="button">Info</a>
                         </td>

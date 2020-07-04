@@ -1,5 +1,6 @@
 const { date, age } = require('../../lib/utils')
 const Student = require('../models/Student')
+const db = require('../../config/db')
 
 module.exports = {
     index(req, res) {
@@ -8,14 +9,17 @@ module.exports = {
         })
     },
     create(req, res) {
-        return res.render('students/create')
+        
+        Student.selectTeacherOptions(options => {
+            return res.render('students/create', {  Teachers_options: options})
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
 
         for (let key of keys) {
             if (req.body[key] == '') {
-                return res.send('Please fill all the fields!')
+                return res.send('Please fill all the fields!') 
             }
         }
 
@@ -29,6 +33,7 @@ module.exports = {
             student.birth_date = age(student.birth_date)
             student.created_at = date(student.created_at).format
 
+            
             return res.render('students/show', { student })
         })
     },
@@ -56,6 +61,6 @@ module.exports = {
     delete(req, res) {
         Student.delete(req.body.id, () => {
             return res.redirect('students/index')
-        }) 
-    },
+        })
+    }
 }

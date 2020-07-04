@@ -3,7 +3,9 @@ const db = require('../../config/db')
 
 module.exports = {
     all(callback) {
-        db.query(`SELECT * FROM students ORDER BY name ASC`, (err, results) => {
+        db.query(`SELECT students.*, teachers.name AS teacher_name
+        FROM students 
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id)`,(err, results) => {
             if (err) throw `Data ${err}`
             callback(results.rows)
         })
@@ -17,8 +19,9 @@ module.exports = {
                 email,
                 education_level,
                 course_credit,
+                teacher,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING id
         `
 
@@ -29,6 +32,7 @@ module.exports = {
             data.email,
             data.education_level,
             data.course_credit,
+            data.teacher,
             date(Date.now()).iso
         ]
 
@@ -39,7 +43,10 @@ module.exports = {
         })
     },
     find(id, callback) {
-        db.query(`SELECT * FROM students WHERE id = $1`, [id], (err, results) => {
+        db.query(`SELECT students.*, teachers.name AS teacher_name 
+        FROM students 
+        LEFT JOIN teachers ON ( students.teacher_id = teachers.id )
+        WHERE students.id = $1`, [id], (err, results) => {
             if (err) throw `Database ${err}`
 
             callback(results.rows[0])
@@ -53,8 +60,9 @@ module.exports = {
                 birth_date=($3),
                 email=($4),
                 education_level=($5),
-                course_credit=($6)
-                WHERE id = $7     
+                course_credit=($6),
+                teacher=($7)
+                WHERE id = $8    
         `
 
         const values = [
@@ -64,6 +72,7 @@ module.exports = {
             data.email,
             data.education_level,
             data.course_credit,
+            data.teacher,
             data.id
         ]
 
@@ -78,6 +87,13 @@ module.exports = {
             if (err) throw `Data ${err}`
 
             callback()
+        })
+    },
+    selectTeacherOptions(callback) {
+        db.query(`SELECT name, id FROM teachers`, (err, results) => {
+            if (err) throw `Data error: ${err}`
+
+            callback(results.rows)
         })
     }
 }
