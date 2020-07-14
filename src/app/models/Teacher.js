@@ -100,6 +100,20 @@ module.exports = {
         })
     },
     paginate(params) {
-        
+        const { filter, page, limit, offset } = params
+
+        let query = '',
+            filterQuery = '',
+            totalQuery = `()`
+
+        query = `
+            
+        `
+
+        db.query(query, [limit, offset], (err, results) => {
+            if (err) throw `Database error: ${err}`
+
+            callback(results.rows)
+        })
     }
 }

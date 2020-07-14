@@ -7,3 +7,4 @@ for (let item of menuItems) {
     }
 }
 
+// paginação
