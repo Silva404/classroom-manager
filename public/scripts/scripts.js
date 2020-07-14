@@ -7,4 +7,3 @@ for (let item of menuItems) {
     }
 }
 
-

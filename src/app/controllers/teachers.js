@@ -3,7 +3,11 @@ const Teacher = require('../models/Teacher')
 
 module.exports = {
     index(req, res) {
-        const { filter } = req.query
+        const { page, limit, filter } = req.query
+
+        page = page || 1
+        limit = limit || 2
+        let offset = 
 
         if (filter) {
             Teacher.findBy(filter ,teachers => {
@@ -14,6 +18,8 @@ module.exports = {
                 return res.render('teachers/index', { teachers })
             })
         }
+
+        // Teacher.paginate(params)
     },
     create(req, res) {
         return res.render('teachers/create')

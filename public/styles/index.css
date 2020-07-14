@@ -4,7 +4,7 @@
     width: 85%;
     min-width: 400px;
     margin: 1em auto;
-    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.4);
 
     opacity: 0;
     animation: 400ms ease 0.5s forwards up;

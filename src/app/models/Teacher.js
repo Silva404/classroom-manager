@@ -98,5 +98,8 @@ module.exports = {
 
             return callback()
         })
+    },
+    paginate(params) {
+        
     }
 }
