@@ -14,10 +14,10 @@ module.exports = {
             page,
             limit,
             offset,
-            callback(instructors) {
+            callback(teachers) {
 
                 const pagination = {
-                    total,
+                    total: Math.ceil(teachers[0].total / limit),
                     pages
                 }
 
@@ -25,16 +25,6 @@ module.exports = {
             }
         }
         Teacher.paginate(params)
-
-        // if (filter) {
-        //     Teacher.findBy(filter ,teachers => {
-        //         return res.render('teachers/index', { teachers })
-        //     })
-        // } else {
-        //     Teacher.all(teachers => {
-        //         return res.render('teachers/index', { teachers })
-        //     })
-        // }
 
     },
     create(req, res) {

@@ -100,14 +100,34 @@ module.exports = {
         })
     },
     paginate(params) {
-        const { filter, page, limit, offset } = params
+        const { filter, limit, offset, callback } = params
 
         let query = '',
             filterQuery = '',
-            totalQuery = `()`
+            totalQuery = `(
+                SELECT count(*) FROM teachers
+            ) AS total `
 
+        if ( filter ) {
+            filterQuery = `
+                WHERE teacher.name ILIKE '%${filter}%'
+                OR teacher.subjects_taught ILIKE '%${filter}%'
+            `
+
+            totalQuery = `(
+                SELECT count(*) FROM teachers
+                ${filterQuery}
+            ) AS total `
+        }
+        
         query = `
-            
+        SELECT teachers.* 
+        ${totalQuery},
+        count(members) AS total_students
+        FROM teachers
+        LEFT JOIN students ON (students.teacher_id = teachers.id)
+        GROUP BY teachers.id
+        LIMIT $1 OFFSET $2
         `
 
         db.query(query, [limit, offset], (err, results) => {

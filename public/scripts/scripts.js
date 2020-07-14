@@ -7,4 +7,20 @@ for (let item of menuItems) {
     }
 }
 
+const totalPages = 20
 // paginação
+let pages = [],
+    oldPage
+
+// [1 ... 13.14.15.16.17 ... 20]
+
+for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+    const firstAndLastItem = currentPage == 1 || currentPage == totalPages
+    const pagesBeforeSelectedPage = currentPage
+    
+    if (firstAndLastItem) {
+        pages.push(currentPage)
+    }
+}
+console.log(pages)
+// return pages
