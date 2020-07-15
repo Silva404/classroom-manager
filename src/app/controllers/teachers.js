@@ -5,18 +5,23 @@ module.exports = {
     index(req, res) {
         const { page, limit, filter } = req.query
 
+        page = page || 1
+        limit = limit || 2
+        let offset = limit * (page - 1)
+
         const params = {
             page,
             limit,
             filter,
-            callback(params) {
+            offset,
+            callback(teachers) {
 
                 const pagination = {
-                    total, 
-                    pages
+                    total: Math.ceil(teachers[0].total / limit), 
+                    page
                 }
 
-                return res.render('teachers/index')
+                return res.render('teachers/index', { filter, teachers, pagination })
             }
         }
 
