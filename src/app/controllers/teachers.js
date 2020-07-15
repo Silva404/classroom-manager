@@ -3,31 +3,7 @@ const Teacher = require('../models/Teacher')
 
 module.exports = {
     index(req, res) {
-        const { page, limit, filter } = req.query
-
-        page = page || 1
-        limit = limit || 2
-        let offset = limit * (page - 1)
-
-        const params = {
-            filter,
-            page,
-            limit,
-            offset,
-            callback(teachers) {
-
-                const pagination = {
-                    total: Math.ceil(teachers[0].total / limit),
-                    page
-                }
-
-                return res.render('teachers/index', { teachers, filter, pagination })
-            }
-        }
-
-        
-        Teacher.paginate(params)
-
+        return res.render('teachers/index')
     },
     create(req, res) {
         return res.render('teachers/create')

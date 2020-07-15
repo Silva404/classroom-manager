@@ -1,3 +1,4 @@
+
 const actualPage = location.pathname
 const menuItems = document.querySelectorAll('header .links a')
 
@@ -7,46 +8,18 @@ for (let item of menuItems) {
     }
 }
 
-// paginação
-// [1 ... 13, 14, 15, 16, 17 ... 20]
+let pages = [],
+    totalPages = 20,
+    selectedPage = 15
 
-function paginate(selectedPages, totalPages) {
-    let pages = [],
-        oldPage
+    // currentPage = 15   selectedPage = 16  ||  16 - 15 = 1
 
-    for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-        const firstAndLastItem = currentPage == 1 || currentPage == totalPages
-        const pagesBeforeSelectedPage = currentPage >= selectedPages - 2
-        const pagesAfterSelectedPage = currentPage <= selectedPages + 2
+for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+    const firstAndLastPage = currentPage == 1 || currentPage == totalPages
+    const pagesBeforeLastPage = currentPage - selectedPage <= 2
 
-        if (firstAndLastItem || pagesAfterSelectedPage && pagesBeforeSelectedPage) {
-            if (oldPage && currentPage - oldPage > 2) {
-                pages.push("...")
-            }
-            if (oldPage && currentPage - oldPage == 2) {
-                pages.push(oldPage + 1)
-            }
-
-            pages.push(currentPage)
-            oldPage = currentPage
-        }
+    if (firstAndLastPage || pagesBeforeLastPage) {
+        pages.push(currentPage)
     }
-
-    return pages
 }
-
-const pagination = document.querySelector('.pagination')
-
-let elements = ''
-
-const filter = +pagination.dataset.filter
-const page = +pagination.dataset.page
-const total = +pagination.dataset.total
-const pages = pagination(page, total)
-
-
-for (let page of pages) {
-    
-}
-
-
+console.log(pages)
