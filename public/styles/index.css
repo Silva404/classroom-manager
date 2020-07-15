@@ -226,3 +226,15 @@ td {
     grid-template-columns: 1fr 0.5fr;
 
 }
+
+.pagination span {
+    margin-left: 0.25em;
+    /* background: var(--secondary-color); */
+    padding: 0.5em 0.5em;
+    border-radius: 0.25em;
+    /* color: var(--background-color); */
+}
+
+.pagination span:first-child {
+    margin-left: 0;
+}
