@@ -1,5 +1,3 @@
-const { create } = require("../../src/app/models/Teacher")
-
 const actualPage = location.pathname
 const menuItems = document.querySelectorAll('header .links a')
 
