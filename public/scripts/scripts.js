@@ -8,26 +8,45 @@ for (let item of menuItems) {
 }
 
 // paginação
-const totalPages = 20
-let pages = [],
-    oldPage,
-    selectedPage = 15
-
 // [1 ... 13, 14, 15, 16, 17 ... 20]
 
-for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-    const firstAndLastItem = currentPage == 1 || currentPage == totalPages
-    const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
-    const pagesAfterSelectedPage = currentPage <= selectedPage + 2
+function paginate(selectedPages, totalPages) {
+    let pages = [],
+        oldPage
 
-    if (firstAndLastItem || pagesAfterSelectedPage && pagesBeforeSelectedPage) {
-        if (oldPage && currentPage - oldPage > 2) {
-            pages.push("...")
+    for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+        const firstAndLastItem = currentPage == 1 || currentPage == totalPages
+        const pagesBeforeSelectedPage = currentPage >= selectedPages - 2
+        const pagesAfterSelectedPage = currentPage <= selectedPages + 2
+
+        if (firstAndLastItem || pagesAfterSelectedPage && pagesBeforeSelectedPage) {
+            if (oldPage && currentPage - oldPage > 2) {
+                pages.push("...")
+            }
+            if (oldPage && currentPage - oldPage == 2) {
+                pages.push(oldPage + 1)
+            }
+
+            pages.push(currentPage)
+            oldPage = currentPage
         }
-
-        pages.push(currentPage)
-        oldPage = currentPage
     }
+
+    return pages
 }
-console.log(pages)
-// return pages
+
+const pagination = document.querySelector('.pagination')
+
+let elements = ''
+
+const filter = +pagination.dataset.filter
+const page = +pagination.dataset.page
+const total = +pagination.dataset.total
+const pages = pagination(page, total)
+
+
+for (let page of pages) {
+    
+}
+
+

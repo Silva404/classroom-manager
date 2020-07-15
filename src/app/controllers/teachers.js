@@ -18,12 +18,14 @@ module.exports = {
 
                 const pagination = {
                     total: Math.ceil(teachers[0].total / limit),
-                    pages
+                    page
                 }
 
                 return res.render('teachers/index', { teachers, filter, pagination })
             }
         }
+
+        
         Teacher.paginate(params)
 
     },
