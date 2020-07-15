@@ -7,19 +7,26 @@ for (let item of menuItems) {
     }
 }
 
-const totalPages = 20
 // paginação
+const totalPages = 20
 let pages = [],
-    oldPage
+    oldPage,
+    selectedPage = 15
 
 // [1 ... 13, 14, 15, 16, 17 ... 20]
 
 for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
     const firstAndLastItem = currentPage == 1 || currentPage == totalPages
-    const pagesBeforeSelectedPage = currentPage >=  
-    
-    if (firstAndLastItem) {
+    const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
+    const pagesAfterSelectedPage = currentPage <= selectedPage + 2
+
+    if (firstAndLastItem || pagesAfterSelectedPage && pagesBeforeSelectedPage) {
+        if (oldPage && currentPage - oldPage > 2) {
+            pages.push("...")
+        }
+
         pages.push(currentPage)
+        oldPage = currentPage
     }
 }
 console.log(pages)
