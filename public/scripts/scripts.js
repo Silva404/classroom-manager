@@ -36,3 +36,23 @@ function paginate(selectedPage, totalPages) {
     return pages
 }
 
+const pagination = document.querySelector('.pagination')
+
+function createPagination(pagination) {
+    const page = +pagination.dataset.page
+    const total = +pagination.dataset.total
+
+    const pages = paginate(page, total)
+
+    let elements = ''
+
+    for (let page of pages) {
+        elements += `<a href="${page}">${page}</a>`
+    }
+
+    pagination.innerHTML = elements
+}
+
+if (pagination) {
+    createPagination(pagination)
+}
