@@ -222,10 +222,6 @@ td {
     border-radius: 0.5em;
 }
 
-.header a {
-    /* width: 40% !important; */
-}
-
 .header a,
 .header button {
     margin: 0 ;
@@ -293,4 +289,31 @@ button[type=submit].delete {
 
 select {
     width: 100%;
+}
+
+.inputBox {
+    position: relative;
+}
+.inputBox input {
+    height: 100%;
+    transition: 300ms ease;
+}
+
+.header form .inputBox label {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    transition: 500ms ease;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:not([value= '']) ~ label {
+    top: -1.35rem;
+    font-size: 0.8em;
+    background: #ffffff;
+    padding: 0 0.3em;
+}
+
+.inputBox input:focus { 
+    border-color: var(--pag-text-color);
 }

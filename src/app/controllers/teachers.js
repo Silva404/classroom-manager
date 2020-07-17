@@ -15,19 +15,19 @@ module.exports = {
             page,
             offset,
             callback(teachers) {
-                // if (teachers.length == 0) {
-                //     const pagination = {
-                //         total: 0,
-                //         page
-                //     }
-                //     return res.render('teachers/index', { teachers, pagination, filter })
-                // } else {
+                if (teachers.length == 0) {
+                    const pagination = {
+                        total: 0,
+                        page
+                    }
+                    return res.render('teachers/index', { teachers, pagination, filter })
+                } else {
                     const pagination = {
                         total: Math.ceil(teachers[0].total / limit),
                         page
                     }
                     return res.render('teachers/index', { teachers, pagination, filter })
-                // }    
+                }
             }
         }
 

@@ -9,9 +9,12 @@
         <div class="header">
             <a href="/teachers/create" class="button">NEW</a>
 
-
             <form action="/teachers" method="get">
-                <input type="text" name="filter" placeholder="Search teacher or subject">
+                <div class="inputBox">
+                    <input type="text" name="filter" required onkeyup="this.setAtribbute('value, this.value');">
+                    {# placeholder="Search teacher or subject"> #}
+                    <label>Search</label>
+                </div>
                 <button type="submit">
                     <span class="material-icons">
                         search
@@ -19,7 +22,6 @@
                 </button>
             </form>
 
-            
         </div>
         <table >
             <thead>
