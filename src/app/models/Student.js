@@ -19,13 +19,13 @@ module.exports = {
                 email,
                 education_level,
                 course_credit,
-                teacher,
+                teacher_id,
                 created_at
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-            RETURNING id
+            RETURNING id 
         `
 
-        const values = [
+        const values = [ 
             data.name,
             data.avatar_url,
             date(data.birth_date).iso,

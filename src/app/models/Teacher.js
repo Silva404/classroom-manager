@@ -120,7 +120,7 @@ module.exports = {
                 FROM teachers
                 ${filterQuery}
             ) AS total`
-        }
+        } 
 
         query = `
         SELECT teachers.*,
@@ -129,7 +129,7 @@ module.exports = {
         FROM teachers
         LEFT JOIN students ON (students.teacher_id = teachers.id)
         ${filterQuery}
-        GROUP BY teachers.id
+        GROUP BY teachers.id    
         LIMIT $1 OFFSET $2
         `
 

@@ -4,7 +4,8 @@
     width: 85%;
     min-width: 400px;
     margin: 1em auto;
-    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
 
     opacity: 0;
     animation: 400ms ease 0.5s forwards up;
@@ -97,7 +98,7 @@ a.button {
 
 a.button {
     color: #ffffff;
-    background: var(--font-color);
+    background: var(--yellow-button);
     border: 0;
 }
 
@@ -233,8 +234,25 @@ td {
 .header form {
     display: grid;
     justify-self: end;
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 1fr 60px;
+}
 
+.header form input  {
+    border-right: 0;
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+.header form button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 0;
+    border-radius: 0 0.5em 0.5em 0;
+}
+
+.header form span {
+    transform: scale(1.1);
 }
 
 .pagination {
@@ -245,12 +263,34 @@ td {
 .pagination span,
 .pagination a {
     margin-left: 0.25em;
-    background: var(--secondary-color);
+    background: var(--pag-bg-color);
     padding: 0.5em 0.5em;
     border-radius: 0.25em;
-    color: var(--background-color);
+    color: var(--pag-text-color);
 }
 
 .pagination span:first-child {
     margin-left: 0;
+}
+
+.button.up,
+button.up {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+button.up {
+    background: var(--button-text-color);
+    color: var(--button-color);
+    /* color: var(--primary-color); */
+    padding: 0.7em 0;
+}
+
+button[type=submit].delete {
+    margin-top: 0.5em;
+    background: var(--delete-button);
+}
+
+select {
+    width: 100%;
 }
