@@ -47,7 +47,7 @@ function createPagination(pagination) {
     let elements = ''
 
     for (let page of pages) {
-        elements += `<a href="${page}">${page}</a>`
+        elements += `<a href="/teachers?page=${page}">${page}</a>`
     }
 
     pagination.innerHTML = elements
