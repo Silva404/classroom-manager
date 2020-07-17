@@ -4,7 +4,7 @@
     width: 85%;
     min-width: 400px;
     margin: 1em auto;
-    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.2);
 
     opacity: 0;
     animation: 400ms ease 0.5s forwards up;
@@ -123,7 +123,7 @@ table {
 .table-container {
     background: #ffffff;   
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template: 80px 1fr 80px / 1fr;
     width: 70%;
     padding: 4em;
 }
@@ -132,7 +132,6 @@ table {
     margin-top: 0;
     padding: 0.8em;
     font-size: 1.4rem;
-    box-shadow: 0 1.5em 2.2em 0 rgba(0, 0, 0, 0.3);
 }
 
 .table-container tr th:first-child  {
@@ -229,7 +228,8 @@ td {
 }
 
 .pagination {
-    align-content: flex-end;
+    align-self: end;
+    justify-self: center;
 }
 
 .pagination span,
