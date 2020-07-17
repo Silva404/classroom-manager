@@ -34,7 +34,8 @@ function paginate(selectedPage, totalPages) {
 
     return pages
 }
-
+ 
+//teste
 const pagination = document.querySelector('.pagination')
 
 function createPagination(pagination) {
