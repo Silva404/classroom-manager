@@ -90,7 +90,7 @@ button[type="submit"],
 a.button {
     background: var(--font-color);
     margin-top: 2em;
-    padding: 1em 0;
+    padding: 0.5em 0;
     width: 100%;
     font-weight: 700;
     font-size: 1.4rem;
@@ -122,7 +122,8 @@ table {
 
 .table-container {
     background: #ffffff;   
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
     width: 70%;
     padding: 4em;
 }
@@ -227,12 +228,17 @@ td {
 
 }
 
-.pagination span {
+.pagination {
+    align-content: flex-end;
+}
+
+.pagination span,
+.pagination a {
     margin-left: 0.25em;
-    /* background: var(--secondary-color); */
+    background: var(--secondary-color);
     padding: 0.5em 0.5em;
     border-radius: 0.25em;
-    /* color: var(--background-color); */
+    color: var(--background-color);
 }
 
 .pagination span:first-child {
