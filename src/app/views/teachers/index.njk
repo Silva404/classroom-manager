@@ -7,10 +7,14 @@
 {% block content %}
     <div class="card table-container">
         <div class="header">
-            <a href="/teachers/create" class="button">NEW TEACHER</a>
+            <a href="/teachers/create" class="button">NEW</a>
             <form action="/teachers" method="get">
                 <input type="text" name="filter" placeholder="Search teacher or subject">
-                <button type="submit">Filter</button>
+                <button type="submit">
+                    <span class="material-icons">
+                        search
+                    </span>
+                </button>
             </form>
         </div>
         <table >
@@ -43,11 +47,7 @@
             </tbody>
         </table>
 
-        <div class="pagination"
-            data-page={{pagination.page}}
-            data-total={{pagination.total}}
-            data-filter={{filter}}
-        ></div>
+        <div class="pagination" data-page={{pagination.page}} data-total={{pagination.total}} data-filter={{filter}}></div>
 
     </div>
 {% endblock content %}

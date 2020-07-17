@@ -58,7 +58,7 @@ input {
     width: 100%;
     border: 0;
     border-radius: 0.5em;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     background-color: none;
     outline: none;    
 }
@@ -88,14 +88,23 @@ input[type="radio"]:checked {
 
 button[type="submit"],
 a.button {
-    background: var(--font-color);
     margin-top: 2em;
     padding: 0.5em 0;
     width: 100%;
-    font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    border-radius: 0.5em;
+}
+
+a.button {
     color: #ffffff;
+    background: var(--font-color);
     border: 0;
+}
+
+button[type="submit"] {
+    border: 1px solid var(--font-color);
+    opacity: 0.8;
+    color: var(--font-color);
 }
 
 button[type="submit"]:nth-child(1) {
@@ -125,12 +134,12 @@ table {
     display: grid;
     grid-template: 80px 1fr 80px / 1fr;
     width: 70%;
-    padding: 4em;
+    padding: 2em 4em;
 }
 
 .table-container td a {
     margin-top: 0;
-    padding: 0.8em;
+    padding: 0.5em 1em;
     font-size: 1.4rem;
 }
 
@@ -200,7 +209,7 @@ td {
 
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100px 1fr;
     align-items: center;
     margin-bottom: 2em;
 }
@@ -209,11 +218,11 @@ td {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 0;
     padding:  0.5em 1em;
-    
+    border-radius: 0.5em;
 }
 
 .header a {
-    width: 40% !important;
+    /* width: 40% !important; */
 }
 
 .header a,
@@ -223,6 +232,7 @@ td {
 
 .header form {
     display: grid;
+    justify-self: end;
     grid-template-columns: 1fr 0.5fr;
 
 }
