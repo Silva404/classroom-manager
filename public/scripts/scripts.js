@@ -13,13 +13,12 @@ function paginate(selectedPage, totalPages) {
 
     for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
         const firstAndLastPage = currentPage == 1 || currentPage == totalPages
-        const pagesBeforeLastPage = currentPage >= selectedPage - 2
-        const pagesAfterLastPage = currentPage <= selectedPage + 2
-        console.log(`oldPage: ${oldPage}`)
-        // console.log(`currentPage: ${currentPage}`)
+        const secondAndLastToOnePage = currentPage == 2 || currentPage == totalPages - 1
+        const pagesBeforeLastPage = currentPage >= selectedPage - 1
+        const pagesAfterLastPage = currentPage <= selectedPage + 1
 
 
-        if (firstAndLastPage || pagesBeforeLastPage && pagesAfterLastPage) {
+        if (firstAndLastPage || secondAndLastToOnePage || pagesBeforeLastPage && pagesAfterLastPage) {
             if (oldPage && currentPage - oldPage > 2) {
                 pages.push('...')
             }
